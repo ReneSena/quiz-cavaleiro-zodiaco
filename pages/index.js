@@ -5,6 +5,7 @@ import QuizBackground from "../src/components/QuizBackground";
 import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
 import Logo from "../src/components/QuizLogo";
+import Head from "next/head";
 
 export const QuizContainer = styled.div`
 	width: 100%;
@@ -21,6 +22,11 @@ export const QuizContainer = styled.div`
 export default function Home() {
 	return (
 		<QuizBackground backgroundImage={db.bg}>
+			<Head>
+				<title>Quiz - CDZ</title>
+				<meta property="og:locale" content="pt_BR" />
+				<meta property="og:image" content={db.bg} />
+			</Head>
 			<QuizContainer>
 				<Logo />
 				<Widget>
