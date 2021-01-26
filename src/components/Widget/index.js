@@ -46,7 +46,7 @@ Widget.Header = styled.header`
 	justify-content: flex-start;
 	align-items: center;
 	padding: 18px 32px;
-	background-color: ${({ theme }) => theme.colors.primary};
+	background-image: linear-gradient(45deg, blue, white);
 
 	* {
 		margin: 0;
