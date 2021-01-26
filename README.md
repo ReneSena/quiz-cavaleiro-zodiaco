@@ -1,6 +1,6 @@
-<h1 align="center">
+<div align="center">
 	<img src="src/assets/image/banner.png" with="800" height="300"/>
-</h1>
+</div>
 
 ## :dart: Objetivo
 
@@ -8,16 +8,17 @@
 
 ## :hammer_and_wrench: Ferramentas
 
-- [Nextjs](https://nextjs.org/)
-- [Styled Components](https://styled-components.com)
-- [Vercel](https://vercel.com)
-- [Yarn](https://yarnpkg.com/)
+-   [Nextjs](https://nextjs.org/)
+-   [Styled Components](https://styled-components.com)
+-   [Vercel](https://vercel.com)
+-   [Yarn](https://yarnpkg.com/)
 
 ## :rocket: Executando o projeto
 
 ```bash
 yarn dev
 ```
-## :computer: Projeto em produção 
+
+## :computer: Projeto em produção
 
 [Link de acesso :dizzy:](https://quiz-cavaleiro-zodiaco.vercel.app/)
