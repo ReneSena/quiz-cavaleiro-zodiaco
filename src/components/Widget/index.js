@@ -11,6 +11,7 @@ const Widget = styled.div`
 	);
 	border-radius: 5px;
 	overflow: hidden;
+	backdrop-filter: blur(4px);
 
 	h1,
 	h2,

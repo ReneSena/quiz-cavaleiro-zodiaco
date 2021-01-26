@@ -26,13 +26,6 @@ export default function Home() {
 		<QuizBackground backgroundImage={db.bg}>
 			<Head>
 				<title>Quiz - CDZ</title>
-				<meta property="og:locale" content="pt_BR" />
-				<meta property="og:image" content={db.bg} />
-				<link rel="preconnect" href="https://fonts.gstatic.com" />
-				<link
-					href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
-					rel="stylesheet"
-				/>
 			</Head>
 			<QuizContainer>
 				<Logo />
