@@ -6,6 +6,8 @@ import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
 import Logo from "../src/components/QuizLogo";
 import Head from "next/head";
+import { Button } from "../src/components/Button";
+import { Input } from "../src/components/Input";
 
 export const QuizContainer = styled.div`
 	width: 100%;
@@ -40,6 +42,8 @@ export default function Home() {
 					</Widget.Header>
 					<Widget.Content>
 						<p>{db.description}</p>
+						<Input placeholder="Diz aí seu nome para jogar :)" />
+						<Button>Jogar</Button>
 					</Widget.Content>
 				</Widget>
 
