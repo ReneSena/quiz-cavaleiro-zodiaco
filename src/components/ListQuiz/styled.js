@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const List = styled.ul`
-	max-height: 160px;
+	max-height: 140px;
 	overflow-y: auto;
 
 	::-webkit-scrollbar {
