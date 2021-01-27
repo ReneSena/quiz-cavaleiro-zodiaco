@@ -19,9 +19,10 @@ const DefaultButton = styled.button`
 
 	&:disabled {
 		background-color: #979797;
+		cursor: not-allowed;
 	}
 
-	&:hover {
+	&:hover:not(:disabled) {
 		opacity: 0.8;
 		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
 	}

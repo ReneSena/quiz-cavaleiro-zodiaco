@@ -11,6 +11,7 @@ import { Input } from "../src/components/Input";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { ListQuiz } from "../src/components/ListQuiz";
+import { Player } from "../src/components/Player";
 
 export const QuizContainer = styled.div`
 	width: 100%;
@@ -44,6 +45,7 @@ export default function Home() {
 				<title>Quiz - CDZ</title>
 			</Head>
 			<QuizContainer>
+				<Player />
 				<Logo />
 				<Widget>
 					<Widget.Header>
