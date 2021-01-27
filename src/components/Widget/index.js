@@ -9,9 +9,9 @@ const Widget = styled.div`
 		rgba(255, 255, 255, 0.1) 50%,
 		#555
 	);
+	backdrop-filter: blur(4px);
 	border-radius: 5px;
 	overflow: hidden;
-	backdrop-filter: blur(4px);
 
 	h1,
 	h2,

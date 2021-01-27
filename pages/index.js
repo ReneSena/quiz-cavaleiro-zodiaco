@@ -10,6 +10,7 @@ import { Button } from "../src/components/Button";
 import { Input } from "../src/components/Input";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { ListQuiz } from "../src/components/ListQuiz";
 
 export const QuizContainer = styled.div`
 	width: 100%;
@@ -69,6 +70,7 @@ export default function Home() {
 							Dá uma olhada nesses quizes incríveis que o pessoal
 							da Imersão fez:
 						</p>
+						<ListQuiz />
 					</Widget.Content>
 				</Widget>
 				<Footer />
