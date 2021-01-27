@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-	width: 50px;
-	height: 50px;
-	/* padding: 20px; */
-	background-color: #fff;
-	border-radius: 50px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
 
 	& button {
-		background-color: transparent;
+		width: 50px;
+		height: 50px;
+		border-radius: 50px;
+		background-color: #fff;
 		border: 0;
 		outline: none;
 	}
