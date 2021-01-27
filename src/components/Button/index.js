@@ -17,6 +17,10 @@ const DefaultButton = styled.button`
 	cursor: pointer;
 	transition: all 0.3s;
 
+	&:disabled {
+		background-color: #979797;
+	}
+
 	&:hover {
 		opacity: 0.8;
 		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
@@ -26,5 +30,5 @@ const DefaultButton = styled.button`
 export function Button(props) {
 	const { children } = props;
 
-	return <DefaultButton>{children}</DefaultButton>;
+	return <DefaultButton {...props}>{children}</DefaultButton>;
 }
