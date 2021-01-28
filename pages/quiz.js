@@ -143,7 +143,7 @@ function Quiz() {
 				{screenState === screenStates.LOADING && <LoadingWidget />}
 
 				{screenState === screenStates.RESULT && (
-					<div>Você acertou X questões, parabéns!!</div>
+					<div>Em construção!!</div>
 				)}
 			</QuizContainer>
 			<GitHubCorner projectUrl="https://github.com/ReneSena/quiz-cavaleiro-zodiaco" />
