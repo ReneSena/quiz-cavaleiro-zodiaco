@@ -1,18 +1,48 @@
 {
 	"bg": "https://i.pinimg.com/originals/9d/d7/ae/9dd7ae7cb204aa4487b5d73ca8fe414a.jpg",
-	"title": "Os Cavaleiros do Zodíaco",
+	"title": "Quiz - Os Cavaleiros do Zodíaco",
 	"description": "Teste os seus conhecimentos sobre os guerreiros de bronze e relembre sua infância infância jogando.",
 	"questions": [
 	  {
-		"image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-		"title": "Como fazer um seletor por id via CSS?",
-		"description": "Essa é pra aquecer",
-		"answer": 2,
+		"image": "https://i.pinimg.com/originals/9b/c4/bf/9bc4bfb5b23fb31e45c295bc7514b685.gif",
+		"title": "Como é o nome desse golpe que o Cisne está executando?",
+		"description": "Não vale olhar em hihi",
+		"answer": 3,
 		"alternatives": [
-		  ".elemento",
-		  "*elemento",
-		  "#elemento",
-		  "%elemento"
+		  "Execução Aurora",
+		  "Bomba Aurora",
+		  "Trovão Aurora",
+		  "Pó de Diamante"
+		]
+	  },
+	  {
+		"image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+		"title": "Como fazer um background gradiente com css?",
+		"description": "Faz tempo em haha",
+		"answer": 0,
+		"alternatives": [
+		   "background: linear-gradient(#e66465, #9198e5);",
+		   "background: gradient(#e66465, #9198e5);"
+		]
+	  },
+	  {
+		"image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+		"title": "Como fazer um background gradiente com css?",
+		"description": "Faz tempo em haha",
+		"answer": 0,
+		"alternatives": [
+		   "background: linear-gradient(#e66465, #9198e5);",
+		   "background: gradient(#e66465, #9198e5);"
+		]
+	  },
+	  {
+		"image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+		"title": "Como fazer um background gradiente com css?",
+		"description": "Faz tempo em haha",
+		"answer": 0,
+		"alternatives": [
+		   "background: linear-gradient(#e66465, #9198e5);",
+		   "background: gradient(#e66465, #9198e5);"
 		]
 	  },
 	  {
@@ -25,6 +55,7 @@
 		   "background: gradient(#e66465, #9198e5);"
 		]
 	  }
+
 	],
 	"external": [
 	  ""
