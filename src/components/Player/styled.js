@@ -7,6 +7,7 @@ export const Container = styled.div`
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
+	z-index: 100;
 
 	& button {
 		width: 50px;
