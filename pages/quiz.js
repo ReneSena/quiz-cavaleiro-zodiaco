@@ -26,15 +26,61 @@ function LoadingWidget() {
 	);
 }
 
+function ResultWidget(props) {
+	const { results } = props;
+
+	return (
+		<>
+			<Widget>
+				<Widget.Header>Seus resultados</Widget.Header>
+			</Widget>
+
+			<Widget>
+				<Widget.Content>
+					<p>
+						Você acertou{" "}
+						{/* {results.reduce((somatoriaAtual, resultAtual) => {
+						const isAcerto = resultAtual === true;
+
+						if (isAcerto) {
+							return somatoriaAtual + 1;
+						}
+
+						return somatoriaAtual;
+					}, 0)} */}
+						{results.filter((result) => result).length} perguntas
+					</p>
+					<ul>
+						{results.map((result, index) => (
+							<li key={`result__${result}`}>
+								#{`0${index + 1}`} Resultado:{" "}
+								{result === true ? "Acertou" : "Errou"}
+							</li>
+						))}
+					</ul>
+				</Widget.Content>
+			</Widget>
+		</>
+	);
+}
+
 function Questions(props) {
-	const { question, totalQuestions, questionIndex, onSubmit } = props;
+	const {
+		question,
+		totalQuestions,
+		questionIndex,
+		onSubmit,
+		addResult,
+	} = props;
 	const [isQuestionFormSubmited, setIsQuestionFormSubmited] = React.useState(
 		false
 	);
 	const questionId = `question__${questionIndex}`;
-	const [selectedAlternative, setselectedAlternative] = React.useState(null);
+	const [selectedAlternative, setselectedAlternative] = React.useState(
+		undefined
+	);
 	const isCorret = selectedAlternative === question.answer;
-	const hasAlternativeSelected = selectedAlternative !== null;
+	const hasAlternativeSelected = selectedAlternative !== undefined;
 
 	return (
 		<Widget>
@@ -64,10 +110,11 @@ function Questions(props) {
 						setIsQuestionFormSubmited(true);
 
 						setTimeout(() => {
+							addResult(isCorret);
 							setIsQuestionFormSubmited(false);
 							setselectedAlternative(null);
 							onSubmit();
-						}, 1 * 3000);
+						}, 3 * 1000);
 					}}
 				>
 					{question.alternatives.map(
@@ -116,10 +163,16 @@ const screenStates = {
 
 function Quiz() {
 	const [screenState, setScreenState] = React.useState(screenStates.LOADING);
+	const [results, setResults] = React.useState([]);
+
 	const totalQuestions = db.questions.length;
 	const [currentQuestion, setCurrentQuestion] = React.useState(0);
 	const questionIndex = currentQuestion;
 	const question = db.questions[questionIndex];
+
+	function addResult(result) {
+		setResults([...results, result]);
+	}
 
 	React.useEffect(() => {
 		setTimeout(() => {
@@ -151,13 +204,14 @@ function Quiz() {
 						questionIndex={questionIndex}
 						totalQuestions={totalQuestions}
 						onSubmit={handleSubmitQuiz}
+						addResult={addResult}
 					/>
 				)}
 
 				{screenState === screenStates.LOADING && <LoadingWidget />}
 
 				{screenState === screenStates.RESULT && (
-					<div>Em construção!!</div>
+					<ResultWidget results={results} />
 				)}
 			</QuizContainer>
 			<GitHubCorner projectUrl="https://github.com/ReneSena/quiz-cavaleiro-zodiaco" />
