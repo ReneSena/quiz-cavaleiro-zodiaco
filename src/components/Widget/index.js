@@ -67,18 +67,36 @@ Widget.Header = styled.header`
 Widget.Topic = styled.a`
 	outline: 0;
 	text-decoration: none;
-	color: ${({ theme }) => theme.colors.contrastText};
-	background-color: ${({ theme }) => `${theme.colors.primary}40`};
-	padding: 10px 15px;
+	color: white;
+	background-image: linear-gradient(
+		200deg,
+		rgba(255, 255, 255, 0.5) 50%,
+		#555
+	);
+	padding: 0 15px;
 	margin-bottom: 8px;
 	cursor: pointer;
 	border-radius: ${({ theme }) => theme.borderRadius};
 	transition: 0.3s;
 	display: block;
+	height: 36px;
+	line-height: 36px;
+	transition: all 0.3s;
+
+	& input {
+		display: none;
+	}
 
 	&:hover,
 	&:focus {
-		opacity: 0.5;
+		box-shadow: 2px 2px 2px #222;
+		transform: translate(-5px, -5px);
+
+		background-image: linear-gradient(
+			265deg,
+			rgba(255, 255, 255, 0.5),
+			#4bb38e
+		);
 	}
 `;
 

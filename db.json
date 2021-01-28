@@ -5,9 +5,9 @@
 	"questions": [
 	  {
 		"image": "https://i.pinimg.com/originals/9b/c4/bf/9bc4bfb5b23fb31e45c295bc7514b685.gif",
-		"title": "Como é o nome desse golpe que o Cisne está executando?",
+		"title": "Como é o nome desse golpe que o Hyoga está executando?",
 		"description": "Não vale olhar em hihi",
-		"answer": 3,
+		"answer": 2,
 		"alternatives": [
 		  "Execução Aurora",
 		  "Bomba Aurora",
@@ -16,43 +16,52 @@
 		]
 	  },
 	  {
-		"image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-		"title": "Como fazer um background gradiente com css?",
+		"image": "https://s.aficionados.com.br/imagens/image-999_cke.jpg",
+		"title": "Quem foi o primeiro cavaleiro de bronze a atingir o 7º sentido?",
 		"description": "Faz tempo em haha",
 		"answer": 0,
 		"alternatives": [
-		   "background: linear-gradient(#e66465, #9198e5);",
-		   "background: gradient(#e66465, #9198e5);"
+		   "Ikki",
+		   "Seya",
+		   "Shiryu",
+		   "Shun",
+		   "Hyoga"
 		]
 	  },
 	  {
-		"image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-		"title": "Como fazer um background gradiente com css?",
-		"description": "Faz tempo em haha",
-		"answer": 0,
+		"image": "http://4.bp.blogspot.com/-vskq2ZQRcns/UJgcuwYTeyI/AAAAAAAAAEg/PXrj829nPxQ/s1600/shiryu_shura.gif",
+		"title": "Como se chama o golpe que Shiryu usa para derrotar Shura de Capricórnio",
+		"description": "Saga das 12 casas :)",
+		"answer": 3,
 		"alternatives": [
-		   "background: linear-gradient(#e66465, #9198e5);",
-		   "background: gradient(#e66465, #9198e5);"
+		  "Ave Fênix",
+		   "Colera do Dragão",
+		   "Fúria do Dragão",
+		   "Último Dragão"
 		]
 	  },
 	  {
-		"image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-		"title": "Como fazer um background gradiente com css?",
-		"description": "Faz tempo em haha",
-		"answer": 0,
+		"image": "https://pm1.narvii.com/6405/0666a546247db08c6d2c920a38223850d9d6839c_hq.jpg",
+		"title": "Éden é filho de quem?",
+		"description": "Aloooô nova geração!!!",
+		"answer": 2,
 		"alternatives": [
-		   "background: linear-gradient(#e66465, #9198e5);",
-		   "background: gradient(#e66465, #9198e5);"
+			"Athena",
+			"Seya",
+			"Marte",
+			"Apsso"
 		]
 	  },
 	  {
-		"image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-		"title": "Como fazer um background gradiente com css?",
-		"description": "Faz tempo em haha",
-		"answer": 0,
+		"image": "https://www.einerd.com.br/wp-content/uploads/2019/10/Cavaleiros-do-Zod%C3%ADaco-The-Lost-Canvas-capa-890x501.jpg",
+		"title": "Quantos episódios tem Cavaleiros do Zodíaco - The Lost Canvas?",
+		"description": "Essa tá fácil vai!",
+		"answer": 2,
 		"alternatives": [
-		   "background: linear-gradient(#e66465, #9198e5);",
-		   "background: gradient(#e66465, #9198e5);"
+		   "32",
+		   "40",
+		   "26",
+		   "57"
 		]
 	  }
 

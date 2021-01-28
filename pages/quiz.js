@@ -5,18 +5,22 @@ import QuizContainer from "../src/components/QuizContainer";
 import GitHubCorner from "../src/components/GitHubCorner";
 import Logo from "../src/components/QuizLogo";
 import Head from "next/head";
-
 import { Button } from "../src/components/Button";
 
 function LoadingWidget() {
 	return (
 		<>
 			<Widget>
-				<Widget.Header>Carregando...</Widget.Header>
+				<Widget.Header>Prepare-se!!!</Widget.Header>
 			</Widget>
 
 			<Widget>
-				<Widget.Content>[Loading da massa]</Widget.Content>
+				{/* <Widget.Content> */}
+				<img
+					style={{ width: "100%", height: "100%" }}
+					src="https://geekquantico.com.br/wp-content/uploads/2019/11/P%C3%A9gaso-Gif.gif"
+				/>
+				{/* </Widget.Content> */}
 			</Widget>
 		</>
 	);
@@ -25,6 +29,10 @@ function LoadingWidget() {
 function Questions(props) {
 	const { question, totalQuestions, questionIndex, onSubmit } = props;
 	const questionId = `question__${questionIndex}`;
+
+	function handleAlternative(event) {
+		console.log(event.target.value);
+	}
 
 	return (
 		<Widget>
@@ -51,8 +59,9 @@ function Questions(props) {
 				<form
 					onSubmit={(event) => {
 						event.preventDefault();
-
 						onSubmit();
+
+						console.log(event.target);
 					}}
 				>
 					{question.alternatives.map(
@@ -61,6 +70,7 @@ function Questions(props) {
 
 							return (
 								<Widget.Topic
+									onClick={handleAlternative}
 									key={alternativeIndex}
 									as="label"
 									htmlFor={alternativeId}
@@ -69,6 +79,7 @@ function Questions(props) {
 										id={alternativeId}
 										type="radio"
 										name={questionId}
+										value={alternativeIndex}
 									/>
 									{alternative}
 								</Widget.Topic>
@@ -99,7 +110,7 @@ function Quiz() {
 	React.useEffect(() => {
 		setTimeout(() => {
 			setScreenState(screenStates.QUIZ);
-		}, 1 * 1000);
+		}, 1 * 4000);
 	}, []);
 
 	function handleSubmitQuiz() {
