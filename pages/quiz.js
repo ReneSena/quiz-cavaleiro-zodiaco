@@ -28,11 +28,13 @@ function LoadingWidget() {
 
 function Questions(props) {
 	const { question, totalQuestions, questionIndex, onSubmit } = props;
+	const [isQuestionFormSubmited, setIsQuestionFormSubmited] = React.useState(
+		false
+	);
 	const questionId = `question__${questionIndex}`;
-
-	function handleAlternative(event) {
-		console.log(event.target.value);
-	}
+	const [selectedAlternative, setselectedAlternative] = React.useState(null);
+	const isCorret = selectedAlternative === question.answer;
+	const hasAlternativeSelected = selectedAlternative !== null;
 
 	return (
 		<Widget>
@@ -59,9 +61,13 @@ function Questions(props) {
 				<form
 					onSubmit={(event) => {
 						event.preventDefault();
-						onSubmit();
+						setIsQuestionFormSubmited(true);
 
-						console.log(event.target);
+						setTimeout(() => {
+							setIsQuestionFormSubmited(false);
+							setselectedAlternative(null);
+							onSubmit();
+						}, 1 * 3000);
 					}}
 				>
 					{question.alternatives.map(
@@ -70,8 +76,7 @@ function Questions(props) {
 
 							return (
 								<Widget.Topic
-									onClick={handleAlternative}
-									key={alternativeIndex}
+									key={alternativeId}
 									as="label"
 									htmlFor={alternativeId}
 								>
@@ -79,7 +84,11 @@ function Questions(props) {
 										id={alternativeId}
 										type="radio"
 										name={questionId}
-										value={alternativeIndex}
+										onChange={() => {
+											setselectedAlternative(
+												alternativeIndex
+											);
+										}}
 									/>
 									{alternative}
 								</Widget.Topic>
@@ -87,7 +96,12 @@ function Questions(props) {
 						}
 					)}
 
-					<Button type="submit">Confirmar</Button>
+					<Button type="submit" disabled={!hasAlternativeSelected}>
+						Confirmar
+					</Button>
+
+					{isQuestionFormSubmited && isCorret && <p>Você acertou!</p>}
+					{isQuestionFormSubmited && !isCorret && <p>Você errou!</p>}
 				</form>
 			</Widget.Content>
 		</Widget>

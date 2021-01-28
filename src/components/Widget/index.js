@@ -87,6 +87,18 @@ Widget.Topic = styled.a`
 		display: none;
 	}
 
+	&.active {
+		background-image: linear-gradient(
+			265deg,
+			rgba(255, 255, 255, 0.5),
+			#4bb38e
+		);
+	}
+
+	&.wrong {
+		background-color: red;
+	}
+
 	&:hover,
 	&:focus {
 		box-shadow: 2px 2px 2px #222;
