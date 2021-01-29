@@ -40,6 +40,7 @@ function LoadingWidget() {
 function ResultWidget(props) {
 	const { results, player } = props;
 	const audioFinish = React.useRef();
+	const router = useRouter();
 
 	React.useEffect(() => {
 		audioFinish.current.play();
@@ -70,6 +71,9 @@ function ResultWidget(props) {
 							</li>
 						))}
 					</ul>
+					<Button type="button" onClick={() => router.push("/")}>
+						Voltar para o ínicio
+					</Button>
 				</Widget.Content>
 			</Widget>
 		</>
