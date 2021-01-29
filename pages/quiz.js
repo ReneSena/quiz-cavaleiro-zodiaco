@@ -123,7 +123,10 @@ function Questions(props) {
 					onSubmit={(event) => {
 						event.preventDefault();
 						setIsQuestionFormSubmited(true);
-						audioTrack.current.play();
+
+						if (audioTrack.current) {
+							audioTrack.current.play();
+						}
 
 						setTimeout(() => {
 							addResult(isCorrect);
@@ -198,13 +201,19 @@ function Questions(props) {
 											/>
 										)} */}
 
-									{alternativeStatus === "SUCCESS" && (
-										<audio ref={audioTrack} src={Pegasus} />
-									)}
+									<audio
+										ref={audioTrack}
+										src={
+											alternativeStatus === "SUCCESS"
+												? Pegasus
+												: Ohno
+										}
+									/>
 
+									{/*
 									{alternativeStatus === "ERROR" && (
 										<audio ref={audioTrack} src={Ohno} />
-									)}
+									)} */}
 
 									{alternative}
 								</Widget.Topic>
