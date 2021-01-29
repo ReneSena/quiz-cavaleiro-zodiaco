@@ -6,7 +6,9 @@ export function ListQuiz() {
 	return (
 		<List>
 			<li>
-				<a href="#">clebinhodj/showdomilhaoalura</a>
+				<a href="https://demon-slayer-quiz.hugos94.vercel.app/">
+					hugos94/demon-slayer-quiz
+				</a>
 			</li>
 			<li>
 				<a href="#">joaokleberprogramador/aluraqiz</a>
