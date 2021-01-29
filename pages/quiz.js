@@ -93,6 +93,7 @@ function Questions(props) {
 	const isCorrect = selectedAlternative === question.answer;
 	const hasAlternativeSelected = selectedAlternative !== undefined;
 	const audioTrack = React.useRef();
+	const form = React.useRef();
 
 	return (
 		<Widget>
@@ -117,6 +118,7 @@ function Questions(props) {
 				<p>{question.description}</p>
 
 				<AlternativesForm
+					ref={form}
 					onSubmit={(event) => {
 						event.preventDefault();
 						setIsQuestionFormSubmited(true);
@@ -126,6 +128,7 @@ function Questions(props) {
 							addResult(isCorrect);
 							setIsQuestionFormSubmited(false);
 							setselectedAlternative(undefined);
+							form.current.reset();
 							onSubmit();
 						}, 5 * 1000);
 					}}

@@ -84,7 +84,7 @@ Widget.Topic = styled.a`
 	transition: transform 200ms linear;
 
 	& input {
-		display: none;
+		/* display: none; */
 	}
 
 	&.active {
