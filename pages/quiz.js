@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import db from "../db.json";
 import Widget from "../src/components/Widget";
 import QuizBackground from "../src/components/QuizBackground";
@@ -165,7 +166,7 @@ function Questions(props) {
 										}}
 									/>
 
-									{alternativeStatus === "SUCCESS" &&
+									{/* {alternativeStatus === "SUCCESS" &&
 										questionId && (
 											<audio
 												ref={audioTrack}
@@ -195,7 +196,7 @@ function Questions(props) {
 												ref={audioTrack}
 												src={Shiryu}
 											/>
-										)}
+										)} */}
 
 									{alternativeStatus === "SUCCESS" &&
 										questionId && (
@@ -247,6 +248,7 @@ function Quiz() {
 	const [currentQuestion, setCurrentQuestion] = React.useState(0);
 	const questionIndex = currentQuestion;
 	const question = db.questions[questionIndex];
+	const router = useRouter();
 
 	function addResult(result) {
 		setResults([...results, result]);
