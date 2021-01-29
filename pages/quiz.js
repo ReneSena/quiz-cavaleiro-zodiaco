@@ -148,28 +148,29 @@ function Questions(props) {
 								selectedAlternative === alternativeIndex;
 
 							return (
-								<Widget.Topic
-									key={alternativeId}
-									as="label"
-									htmlFor={alternativeId}
-									data-selected={isSelected}
-									data-status={
-										isQuestionFormSubmited &&
-										alternativeStatus
-									}
-								>
-									<input
-										id={alternativeId}
-										type="radio"
-										name={questionId}
-										onChange={() => {
-											setselectedAlternative(
-												alternativeIndex
-											);
-										}}
-									/>
+								<>
+									<Widget.Topic
+										key={alternativeId}
+										as="label"
+										htmlFor={alternativeId}
+										data-selected={isSelected}
+										data-status={
+											isQuestionFormSubmited &&
+											alternativeStatus
+										}
+									>
+										<input
+											id={alternativeId}
+											type="radio"
+											name={questionId}
+											onClick={() => {
+												setselectedAlternative(
+													alternativeIndex
+												);
+											}}
+										/>
 
-									{/* {alternativeStatus === "SUCCESS" &&
+										{/* {alternativeStatus === "SUCCESS" &&
 										questionId && (
 											<audio
 												ref={audioTrack}
@@ -201,25 +202,19 @@ function Questions(props) {
 											/>
 										)} */}
 
-									<audio
-										ref={audioTrack}
-										src={
-											alternativeStatus === "SUCCESS"
-												? Pegasus
-												: Ohno
-										}
-									/>
-
-									{/*
+										{/*
 									{alternativeStatus === "ERROR" && (
 										<audio ref={audioTrack} src={Ohno} />
 									)} */}
 
-									{alternative}
-								</Widget.Topic>
+										{alternative}
+									</Widget.Topic>
+								</>
 							);
 						}
 					)}
+
+					<audio ref={audioTrack} src={isCorrect ? Pegasus : Ohno} />
 
 					<Button type="submit" disabled={!hasAlternativeSelected}>
 						Confirmar
