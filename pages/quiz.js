@@ -38,7 +38,7 @@ function LoadingWidget() {
 }
 
 function ResultWidget(props) {
-	const { results } = props;
+	const { results, player } = props;
 	const audioFinish = React.useRef();
 
 	React.useEffect(() => {
@@ -49,7 +49,7 @@ function ResultWidget(props) {
 		<>
 			<audio ref={audioFinish} src={TrilhaSonora}></audio>
 			<Widget>
-				<Widget.Header>Seus resultados</Widget.Header>
+				<Widget.Header>Seus resultados: {player}</Widget.Header>
 			</Widget>
 
 			<Widget>
@@ -250,6 +250,9 @@ function Quiz() {
 	const question = db.questions[questionIndex];
 	const router = useRouter();
 
+	const [url, name] = router.asPath.split("?");
+	const player = decodeURI(name);
+
 	function addResult(result) {
 		setResults([...results, result]);
 	}
@@ -291,7 +294,7 @@ function Quiz() {
 				{screenState === screenStates.LOADING && <LoadingWidget />}
 
 				{screenState === screenStates.RESULT && (
-					<ResultWidget results={results} />
+					<ResultWidget results={results} player={player} />
 				)}
 			</QuizContainer>
 			<GitHubCorner projectUrl="https://github.com/ReneSena/quiz-cavaleiro-zodiaco" />
