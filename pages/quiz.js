@@ -198,21 +198,13 @@ function Questions(props) {
 											/>
 										)} */}
 
-									{alternativeStatus === "SUCCESS" &&
-										questionId && (
-											<audio
-												ref={audioTrack}
-												src={Pegasus}
-											/>
-										)}
+									{alternativeStatus === "SUCCESS" && (
+										<audio ref={audioTrack} src={Pegasus} />
+									)}
 
-									{alternativeStatus === "ERROR" &&
-										questionId && (
-											<audio
-												ref={audioTrack}
-												src={Ohno}
-											/>
-										)}
+									{alternativeStatus === "ERROR" && (
+										<audio ref={audioTrack} src={Ohno} />
+									)}
 
 									{alternative}
 								</Widget.Topic>
