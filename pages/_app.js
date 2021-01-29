@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import db from "../db.json";
-import { Player } from "../src/components/Player";
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -44,7 +43,6 @@ export default function App({ Component, pageProps }) {
 			</Head>
 			<ThemeProvider theme={theme}>
 				<GlobalStyle />
-				<Player />
 				<Component {...pageProps} />
 			</ThemeProvider>
 		</>

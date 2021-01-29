@@ -81,7 +81,7 @@ Widget.Topic = styled.a`
 	display: block;
 	height: 36px;
 	line-height: 36px;
-	transition: all 0.3s;
+	transition: transform 200ms linear;
 
 	& input {
 		display: none;
@@ -102,7 +102,7 @@ Widget.Topic = styled.a`
 	&:hover,
 	&:focus {
 		box-shadow: 2px 2px 2px #222;
-		transform: translate(-5px, -5px);
+		transform: translate(-5px, -2px);
 
 		background-image: linear-gradient(
 			265deg,

@@ -6,6 +6,18 @@ import GitHubCorner from "../src/components/GitHubCorner";
 import Logo from "../src/components/QuizLogo";
 import Head from "next/head";
 import { Button } from "../src/components/Button";
+import AlternativesForm from "../src/components/AlternativesForm";
+
+import Hyoga from "../src/assets/audio/trovao.mp3";
+import Ikki from "../src/assets/audio/ikki.mp3";
+import Pegasus from "../src/assets/audio/pegasus.mp3";
+import Shiryu from "../src/assets/audio/shiryu.mp3";
+import Shun from "../src/assets/audio/shun.mp3";
+import Ohno from "../src/assets/audio/ohno.mp3";
+import TrilhaSonora from "../src/assets/audio/song.mp3";
+
+import { ErrorAlt } from "@styled-icons/boxicons-solid/ErrorAlt";
+import { Verified } from "@styled-icons/material-sharp/Verified";
 
 function LoadingWidget() {
 	return (
@@ -15,12 +27,10 @@ function LoadingWidget() {
 			</Widget>
 
 			<Widget>
-				{/* <Widget.Content> */}
 				<img
 					style={{ width: "100%", height: "100%" }}
 					src="https://geekquantico.com.br/wp-content/uploads/2019/11/P%C3%A9gaso-Gif.gif"
 				/>
-				{/* </Widget.Content> */}
 			</Widget>
 		</>
 	);
@@ -28,9 +38,15 @@ function LoadingWidget() {
 
 function ResultWidget(props) {
 	const { results } = props;
+	const audioFinish = React.useRef();
+
+	React.useEffect(() => {
+		audioFinish.current.play();
+	}, []);
 
 	return (
 		<>
+			<audio ref={audioFinish} src={TrilhaSonora}></audio>
 			<Widget>
 				<Widget.Header>Seus resultados</Widget.Header>
 			</Widget>
@@ -38,23 +54,18 @@ function ResultWidget(props) {
 			<Widget>
 				<Widget.Content>
 					<p>
-						Você acertou{" "}
-						{/* {results.reduce((somatoriaAtual, resultAtual) => {
-						const isAcerto = resultAtual === true;
-
-						if (isAcerto) {
-							return somatoriaAtual + 1;
-						}
-
-						return somatoriaAtual;
-					}, 0)} */}
-						{results.filter((result) => result).length} perguntas
+						Você acertou {results.filter((result) => result).length}{" "}
+						perguntas
 					</p>
 					<ul>
 						{results.map((result, index) => (
 							<li key={`result__${result}`}>
-								#{`0${index + 1}`} Resultado:{" "}
-								{result === true ? "Acertou" : "Errou"}
+								{`0${index + 1}º`} Resultado:{" "}
+								{result === true ? (
+									<Verified size="20" color="green" />
+								) : (
+									<ErrorAlt size="20" color="red" />
+								)}
 							</li>
 						))}
 					</ul>
@@ -79,8 +90,9 @@ function Questions(props) {
 	const [selectedAlternative, setselectedAlternative] = React.useState(
 		undefined
 	);
-	const isCorret = selectedAlternative === question.answer;
+	const isCorrect = selectedAlternative === question.answer;
 	const hasAlternativeSelected = selectedAlternative !== undefined;
+	const audioTrack = React.useRef();
 
 	return (
 		<Widget>
@@ -104,28 +116,40 @@ function Questions(props) {
 				<h2>{question.title}</h2>
 				<p>{question.description}</p>
 
-				<form
+				<AlternativesForm
 					onSubmit={(event) => {
 						event.preventDefault();
 						setIsQuestionFormSubmited(true);
+						audioTrack.current.play();
 
 						setTimeout(() => {
-							addResult(isCorret);
+							addResult(isCorrect);
 							setIsQuestionFormSubmited(false);
-							setselectedAlternative(null);
+							setselectedAlternative(undefined);
 							onSubmit();
-						}, 3 * 1000);
+						}, 5 * 1000);
 					}}
 				>
 					{question.alternatives.map(
 						(alternative, alternativeIndex) => {
 							const alternativeId = `alternative__${alternativeIndex}`;
+							const alternativeStatus = isCorrect
+								? "SUCCESS"
+								: "ERROR";
+
+							const isSelected =
+								selectedAlternative === alternativeIndex;
 
 							return (
 								<Widget.Topic
 									key={alternativeId}
 									as="label"
 									htmlFor={alternativeId}
+									data-selected={isSelected}
+									data-status={
+										isQuestionFormSubmited &&
+										alternativeStatus
+									}
 								>
 									<input
 										id={alternativeId}
@@ -137,6 +161,55 @@ function Questions(props) {
 											);
 										}}
 									/>
+
+									{alternativeStatus === "SUCCESS" &&
+										questionId && (
+											<audio
+												ref={audioTrack}
+												src={Hyoga}
+											/>
+										)}
+
+									{alternativeStatus === "SUCCESS" &&
+										questionId && (
+											<audio
+												ref={audioTrack}
+												src={Ikki}
+											/>
+										)}
+
+									{alternativeStatus === "SUCCESS" &&
+										questionId && (
+											<audio
+												ref={audioTrack}
+												src={Shun}
+											/>
+										)}
+
+									{alternativeStatus === "SUCCESS" &&
+										questionId && (
+											<audio
+												ref={audioTrack}
+												src={Shiryu}
+											/>
+										)}
+
+									{alternativeStatus === "SUCCESS" &&
+										questionId && (
+											<audio
+												ref={audioTrack}
+												src={Pegasus}
+											/>
+										)}
+
+									{alternativeStatus === "ERROR" &&
+										questionId && (
+											<audio
+												ref={audioTrack}
+												src={Ohno}
+											/>
+										)}
+
 									{alternative}
 								</Widget.Topic>
 							);
@@ -147,9 +220,11 @@ function Questions(props) {
 						Confirmar
 					</Button>
 
-					{isQuestionFormSubmited && isCorret && <p>Você acertou!</p>}
-					{isQuestionFormSubmited && !isCorret && <p>Você errou!</p>}
-				</form>
+					{/* {isQuestionFormSubmited && isCorrect && (
+						<p>Você acertou!</p>
+					)}
+					{isQuestionFormSubmited && !isCorrect && <p>Você errou!</p>} */}
+				</AlternativesForm>
 			</Widget.Content>
 		</Widget>
 	);

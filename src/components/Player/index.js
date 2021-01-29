@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import Song from "../../assets/audio/song.mp3";
+// import Song from "../../assets/audio/trovao.mp3";
 import { Container } from "./styled";
 import { PlayFill } from "@styled-icons/bootstrap/PlayFill";
 import { PauseFill } from "@styled-icons/bootstrap/PauseFill";
@@ -10,6 +11,7 @@ export function Player() {
 
 	function handlePlay() {
 		setSong(false);
+		audioTrack.current.currentTime = 0.5;
 		audioTrack.current.play();
 	}
 
