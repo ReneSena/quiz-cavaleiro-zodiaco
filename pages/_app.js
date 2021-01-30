@@ -35,7 +35,25 @@ export default function App({ Component, pageProps }) {
 			<Head>
 				<meta property="og:locale" content="pt_BR" />
 				<meta property="og:image" content={db.bg} />
-				<link rel="preconnect" href="https://fonts.gstatic.com" />
+				<meta
+					property="og:url"
+					content="https://quiz-cavaleiro-zodiaco.vercel.app/"
+				/>
+				<meta
+					name="title"
+					content="CDZQUIZ - Quiz relacionado ao anime Cavalerios do Zodíaco"
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="twitter:url"
+					content="https://quiz-cavaleiro-zodiaco.vercel.app/"
+				/>
+				<meta
+					property="twitter:title"
+					content="CDZQUIZ - Quiz relacionado ao anime Cavalerios do Zodíaco"
+				/>
+				<meta property="twitter:image" content={db.bg}></meta>
+
 				<link
 					href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
 					rel="stylesheet"
