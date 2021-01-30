@@ -33,7 +33,7 @@ export default function Home() {
 				<title>{db.title}</title>
 			</Head>
 			<QuizContainer>
-				{/* <Logo /> */}
+				<Logo />
 				<Widget
 					as={motion.section}
 					transition={{ delay: 0, duration: 0.5 }}
@@ -52,7 +52,7 @@ export default function Home() {
 							<Input
 								onChange={handleDataName}
 								value={name}
-								placeholder="Diz aí seu nome para jogar :)"
+								placeholder="Digíte seu nome para batalhar :)"
 							/>
 							<Button disabled={name.length === 0}>
 								Entrar no jogo
