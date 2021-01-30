@@ -4,15 +4,13 @@ import { ThemeProvider } from 'styled-components';
 import QuizScreen from '../../src/screens/Quiz';
 
 export default function QuizDaGalera({ dbExterno }) {
-	const { theme, questions, bg, title } = dbExterno;
-
 	return (
 		<div>
-			<ThemeProvider theme={theme}>
+			<ThemeProvider theme={dbExterno.theme}>
 				<QuizScreen
-					externalQuestions={questions}
-					externalBg={bg}
-					externalTitle={title}
+					questionsQuiz={dbExterno}
+					backgroundQuiz={dbExterno}
+					externalTitle={dbExterno}
 				/>
 			</ThemeProvider>
 		</div>
@@ -48,6 +46,6 @@ export async function getServerSideProps(context) {
 	}
 }
 
-// QuizDaGalera.propTypes = {
-// 	dbExterno: PropTypes.objectOf(PropTypes.string).isRequired,
-// };
+QuizDaGalera.propTypes = {
+	dbExterno: PropTypes.objectOf(PropTypes.string).isRequired,
+};
