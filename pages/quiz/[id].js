@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import QuizScreen from '../../src/screens/Quiz';
+import QuizTemplate from '../../src/screens/Quiz';
 
 export default function QuizDaGalera({ dbExterno }) {
 	return (
 		<div>
 			<ThemeProvider theme={dbExterno.theme}>
-				<QuizScreen
+				<QuizTemplate
 					questionsQuiz={dbExterno}
 					backgroundQuiz={dbExterno}
 					externalTitle={dbExterno}

@@ -18,7 +18,9 @@ const screenStates = {
 	RESULT: 'RESULT',
 };
 
-function QuizTemplate({ questionsQuiz, backgroundQuiz, titleQuiz }) {
+function QuizTemplate(props) {
+	const { questionsQuiz, backgroundQuiz, titleQuiz } = props;
+
 	const [screenState, setScreenState] = React.useState(screenStates.LOADING);
 	const [results, setResults] = React.useState([]);
 
@@ -85,6 +87,8 @@ QuizTemplate.defaultProps = {
 
 QuizTemplate.propTypes = {
 	titleQuiz: PropTypes.string,
+	backgroundImage: PropTypes.string.isRequired,
+	questionsQuiz: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default QuizTemplate;

@@ -2,6 +2,7 @@ import React from 'react';
 import Widget from '../../components/Widget';
 import { Button } from '../../components/Button';
 import AlternativesForm from '../../components/AlternativesForm';
+import BackLinkArrow from '../../components/BackLinkArrow';
 
 import Pegasus from '../../assets/audio/pegasus.mp3';
 import Ohno from '../../assets/audio/ohno.mp3';
@@ -35,6 +36,8 @@ export default function Questions(props) {
 	return (
 		<Widget>
 			<Widget.Header>
+				<BackLinkArrow href="/" />
+
 				<h3>
 					{`Pergunta ${questionIndex + 1}`} de {totalQuestions}
 				</h3>
