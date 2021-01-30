@@ -1,11 +1,16 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const FooterWrapper = styled.footer`
 	background-color: #00000070;
-	padding: 20px;
+	padding: 20px 20px;
 	display: flex;
 	align-items: center;
 	border-radius: 4px;
+
+	@media (max-width: 768px) {
+		display: none;
+	}
+
 	img {
 		width: 58px;
 		margin-right: 23px;
@@ -25,6 +30,9 @@ const FooterWrapper = styled.footer`
 `;
 
 export default function Footer(props) {
+	const { nameClass } = props;
+	const year = new Date().getFullYear();
+
 	return (
 		<FooterWrapper {...props}>
 			<a href="https://www.alura.com.br/">
@@ -34,9 +42,9 @@ export default function Footer(props) {
 				/>
 			</a>
 			<p>
-				Orgulhosamente criado durante a{" "}
-				<a href="https://www.alura.com.br/">
-					<span>Imersão React da Alura</span>
+				Feito durante a{' '}
+				<a href="https://www.alura.com.br/" className={nameClass}>
+					<span>{`Imersão React da Alura - ${year}`}</span>
 				</a>
 			</p>
 		</FooterWrapper>

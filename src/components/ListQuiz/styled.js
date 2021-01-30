@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const List = styled.ul`
 	max-height: 140px;
@@ -34,6 +34,12 @@ export const List = styled.ul`
 		color: #fff;
 		background-color: #222;
 		text-decoration: none;
+
+		&.disabled {
+			pointer-events: none;
+			background-color: #888;
+			opacity: 0.5;
+		}
 
 		&:hover {
 			opacity: 0.8;

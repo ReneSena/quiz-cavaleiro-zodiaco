@@ -1,21 +1,21 @@
-import db from "../db.json";
-import { motion } from "framer-motion";
-import Widget from "../src/components/Widget";
-import QuizBackground from "../src/components/QuizBackground";
-import QuizContainer from "../src/components/QuizContainer";
-import Footer from "../src/components/Footer";
-import GitHubCorner from "../src/components/GitHubCorner";
-import Logo from "../src/components/QuizLogo";
-import Head from "next/head";
-import { Button } from "../src/components/Button";
-import { Input } from "../src/components/Input";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import { ListQuiz } from "../src/components/ListQuiz";
+import db from '../db.json';
+import { motion } from 'framer-motion';
+import Widget from '../src/components/Widget';
+import QuizBackground from '../src/components/QuizBackground';
+import QuizContainer from '../src/components/QuizContainer';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import Logo from '../src/components/QuizLogo';
+import Head from 'next/head';
+import { Button } from '../src/components/Button';
+import { Input } from '../src/components/Input';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { ListQuiz } from '../src/components/ListQuiz';
 
 export default function Home() {
 	const router = useRouter();
-	const [name, setName] = useState("");
+	const [name, setName] = useState('');
 
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -33,17 +33,16 @@ export default function Home() {
 				<title>{db.title}</title>
 			</Head>
 			<QuizContainer>
-				<Logo />
+				{/* <Logo /> */}
 				<Widget
 					as={motion.section}
 					transition={{ delay: 0, duration: 0.5 }}
 					variants={{
-						show: { opacity: 1, y: "0" },
-						hidden: { opacity: 0, y: "100%" },
+						show: { opacity: 1, y: '0' },
+						hidden: { opacity: 0, y: '100%' },
 					}}
 					initial="hidden"
-					animate="show"
-				>
+					animate="show">
 					<Widget.Header>
 						<h1>{db.title}</h1>
 					</Widget.Header>
@@ -55,7 +54,9 @@ export default function Home() {
 								value={name}
 								placeholder="Diz aí seu nome para jogar :)"
 							/>
-							<Button disabled={name.length === 0}>Jogar</Button>
+							<Button disabled={name.length === 0}>
+								Entrar no jogo
+							</Button>
 						</form>
 					</Widget.Content>
 				</Widget>
@@ -68,17 +69,16 @@ export default function Home() {
 						hidden: { opacity: 0 },
 					}}
 					initial="hidden"
-					animate="show"
-				>
+					animate="show">
 					<Widget.Content>
 						<h1>Quizes da galera</h1>
 
-						<p>
-							Dá uma olhada nesses quizes incríveis que o pessoal
-							da Imersão fez:
-						</p>
+						<p>Jogar Quizes Semelhantes da Imersão:</p>
 
-						<ListQuiz data={db.external} />
+						<ListQuiz
+							data={db.external}
+							status={name.length === 0 && 'disabled'}
+						/>
 					</Widget.Content>
 				</Widget>
 				<Footer

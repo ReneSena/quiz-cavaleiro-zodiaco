@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 const animationAlternativeError = keyframes`
 	0% {
@@ -31,14 +31,14 @@ const animationAlternative = keyframes`
 
 const AlternativesForm = styled.form`
 	label {
-		&[data-selected="true"] {
+		&[data-selected='true'] {
 			background-image: linear-gradient(
 				265deg,
 				rgba(255, 255, 255, 0.5),
 				#175662
 			);
 
-			&[data-status="SUCCESS"] {
+			&[data-status='SUCCESS'] {
 				background-image: linear-gradient(
 					265deg,
 					rgba(255, 255, 255, 0.5),
@@ -49,7 +49,7 @@ const AlternativesForm = styled.form`
 				animation-direction: alternate;
 			}
 
-			&[data-status="ERROR"] {
+			&[data-status='ERROR'] {
 				background-image: linear-gradient(
 					265deg,
 					rgba(255, 255, 255, 0.5),

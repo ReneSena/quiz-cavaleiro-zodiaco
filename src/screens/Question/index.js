@@ -3,6 +3,7 @@ import Widget from '../../components/Widget';
 import { Button } from '../../components/Button';
 import AlternativesForm from '../../components/AlternativesForm';
 import BackLinkArrow from '../../components/BackLinkArrow';
+import { motion } from 'framer-motion';
 
 import Pegasus from '../../assets/audio/pegasus.mp3';
 import Ohno from '../../assets/audio/ohno.mp3';
@@ -24,10 +25,6 @@ export default function Questions(props) {
 		undefined
 	);
 
-	if (question.answer) {
-		console.log(question);
-	}
-
 	const isCorrect = selectedAlternative === question.answer;
 	const hasAlternativeSelected = selectedAlternative !== undefined;
 	const audioTrack = React.useRef();
@@ -43,14 +40,29 @@ export default function Questions(props) {
 				</h3>
 			</Widget.Header>
 
-			<img
+			<Widget.Image
 				src={question.image}
 				alt={question.alt}
-				width={'350px'}
-				height={'200px'}
+				as={motion.img}
+				transition={{
+					delay: 0.8,
+					duration: 0.5,
+				}}
+				variants={{
+					show: { opacity: 1 },
+					hidden: { opacity: 0 },
+				}}
 			/>
 
-			<Widget.Content>
+			<Widget.Content
+				as={motion.section}
+				transition={{ delay: 0, duration: 0.5 }}
+				variants={{
+					show: { opacity: 1 },
+					hidden: { opacity: 0 },
+				}}
+				initial="hidden"
+				animate="show">
 				<h2>{question.title}</h2>
 				<p>{question.description}</p>
 
@@ -85,6 +97,15 @@ export default function Questions(props) {
 							return (
 								<>
 									<Widget.Topic
+										as={motion.label}
+										transition={{
+											delay: 0.8,
+											duration: 0.5,
+										}}
+										variants={{
+											show: { opacity: 1 },
+											hidden: { opacity: 0 },
+										}}
 										key={alternativeId}
 										as="label"
 										htmlFor={alternativeId}

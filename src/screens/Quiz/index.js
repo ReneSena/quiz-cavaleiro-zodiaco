@@ -20,15 +20,14 @@ const screenStates = {
 
 function QuizTemplate(props) {
 	const { questionsQuiz, backgroundQuiz, titleQuiz } = props;
-
 	const [screenState, setScreenState] = React.useState(screenStates.LOADING);
+	const [currentQuestion, setCurrentQuestion] = React.useState(0);
 	const [results, setResults] = React.useState([]);
+	const router = useRouter();
 
 	const totalQuestions = questionsQuiz.questions.length;
-	const [currentQuestion, setCurrentQuestion] = React.useState(0);
 	const questionIndex = currentQuestion;
 	const question = questionsQuiz.questions[questionIndex];
-	const router = useRouter();
 
 	const name = router.asPath.replace('/quiz?', '');
 	const player = decodeURI(name);
@@ -59,7 +58,7 @@ function QuizTemplate(props) {
 				<title>{titleQuiz.title}</title>
 			</Head>
 			<QuizContainer>
-				<Logo />
+				{/* <Logo /> */}
 				{screenState === screenStates.QUIZ && (
 					<Questions
 						question={question}
@@ -88,7 +87,7 @@ QuizTemplate.defaultProps = {
 QuizTemplate.propTypes = {
 	titleQuiz: PropTypes.string,
 	backgroundImage: PropTypes.string.isRequired,
-	questionsQuiz: PropTypes.arrayOf(PropTypes.string).isRequired,
+	questionsQuiz: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default QuizTemplate;

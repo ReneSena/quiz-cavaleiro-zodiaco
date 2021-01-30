@@ -4,7 +4,7 @@ import LinkExterno from '../Link';
 import { List } from './styled';
 
 export function ListQuiz(props) {
-	const { data } = props;
+	const { data, status } = props;
 
 	return (
 		<List>
@@ -19,6 +19,7 @@ export function ListQuiz(props) {
 				return (
 					<li key={link}>
 						<a
+							className={status}
 							as={LinkExterno}
 							href={`/quiz/${project}___${user}`}>{`${project} / ${user}`}</a>
 					</li>

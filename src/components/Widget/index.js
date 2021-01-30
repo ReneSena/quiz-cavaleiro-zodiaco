@@ -1,14 +1,18 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Widget = styled.div`
 	margin-top: 24px;
-	margin-bottom: 24px;
+
+	&:first-child {
+		margin-top: 0;
+	}
 
 	background-image: linear-gradient(
 		200deg,
 		rgba(255, 255, 255, 0.1) 50%,
 		#555
 	);
+
 	backdrop-filter: blur(4px);
 	border-radius: 5px;
 	overflow: hidden;
@@ -110,6 +114,12 @@ Widget.Topic = styled.a`
 			#4bb38e
 		);
 	}
+`;
+
+Widget.Image = styled.img`
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
 `;
 
 export default Widget;
