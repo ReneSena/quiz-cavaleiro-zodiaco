@@ -67,7 +67,9 @@
 
 	],
 	"external": [
-	  ""
+	  "https://aluraquiz-css.omariosouto.vercel.app/",
+	  "https://aluraquiz-marvel.omariosouto.vercel.app/",
+	  "https://demon-slayer-quiz.hugos94.vercel.app/"
 	],
 	"theme": {
 	  "colors": {

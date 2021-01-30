@@ -1,24 +1,20 @@
 import { useRouter } from "next/router";
-import db from "../db.json";
-import Widget from "../src/components/Widget";
-import QuizBackground from "../src/components/QuizBackground";
-import QuizContainer from "../src/components/QuizContainer";
-import GitHubCorner from "../src/components/GitHubCorner";
-import Logo from "../src/components/QuizLogo";
+import Widget from "../../../src/components/Widget";
+import QuizBackground from "../../../src/components/QuizBackground";
+import QuizContainer from "../../../src/components/QuizContainer";
+import GitHubCorner from "../../../src/components/GitHubCorner";
+import Logo from "../../../src/components/QuizLogo";
 import Head from "next/head";
-import { Button } from "../src/components/Button";
-import AlternativesForm from "../src/components/AlternativesForm";
+import { Button } from "../../../src/components/Button";
+import AlternativesForm from "../../../src/components/AlternativesForm";
 
-import Hyoga from "../src/assets/audio/trovao.mp3";
-import Ikki from "../src/assets/audio/ikki.mp3";
-import Pegasus from "../src/assets/audio/pegasus.mp3";
-import Shiryu from "../src/assets/audio/shiryu.mp3";
-import Shun from "../src/assets/audio/shun.mp3";
-import Ohno from "../src/assets/audio/ohno.mp3";
-import TrilhaSonora from "../src/assets/audio/song.mp3";
+import Pegasus from "../../../src/assets/audio/pegasus.mp3";
+import Ohno from "../../../src/assets/audio/ohno.mp3";
+import TrilhaSonora from "../../../src/assets/audio/song.mp3";
 
 import { ErrorAlt } from "@styled-icons/boxicons-solid/ErrorAlt";
 import { Verified } from "@styled-icons/material-sharp/Verified";
+import BackLinkArrow from "../../components/BackLinkArrow";
 
 function LoadingWidget() {
 	return (
@@ -103,6 +99,8 @@ function Questions(props) {
 	return (
 		<Widget>
 			<Widget.Header>
+				<BackLinkArrow href="/" />
+
 				<h3>
 					{`Pergunta ${questionIndex + 1}`} de {totalQuestions}
 				</h3>
@@ -173,44 +171,6 @@ function Questions(props) {
 												);
 											}}
 										/>
-
-										{/* {alternativeStatus === "SUCCESS" &&
-										questionId && (
-											<audio
-												ref={audioTrack}
-												src={Hyoga}
-											/>
-										)}
-
-									{alternativeStatus === "SUCCESS" &&
-										questionId && (
-											<audio
-												ref={audioTrack}
-												src={Ikki}
-											/>
-										)}
-
-									{alternativeStatus === "SUCCESS" &&
-										questionId && (
-											<audio
-												ref={audioTrack}
-												src={Shun}
-											/>
-										)}
-
-									{alternativeStatus === "SUCCESS" &&
-										questionId && (
-											<audio
-												ref={audioTrack}
-												src={Shiryu}
-											/>
-										)} */}
-
-										{/*
-									{alternativeStatus === "ERROR" && (
-										<audio ref={audioTrack} src={Ohno} />
-									)} */}
-
 										{alternative}
 									</Widget.Topic>
 								</>
@@ -223,11 +183,6 @@ function Questions(props) {
 					<Button type="submit" disabled={!hasAlternativeSelected}>
 						Confirmar
 					</Button>
-
-					{/* {isQuestionFormSubmited && isCorrect && (
-						<p>Você acertou!</p>
-					)}
-					{isQuestionFormSubmited && !isCorrect && <p>Você errou!</p>} */}
 				</AlternativesForm>
 			</Widget.Content>
 		</Widget>
@@ -240,17 +195,17 @@ const screenStates = {
 	RESULT: "RESULT",
 };
 
-function Quiz() {
+function Quiz({ externalQuestions, externalBg, externalTitle }) {
 	const [screenState, setScreenState] = React.useState(screenStates.LOADING);
 	const [results, setResults] = React.useState([]);
 
-	const totalQuestions = db.questions.length;
+	const totalQuestions = externalQuestions.length;
 	const [currentQuestion, setCurrentQuestion] = React.useState(0);
 	const questionIndex = currentQuestion;
-	const question = db.questions[questionIndex];
+	const question = externalQuestions[questionIndex];
 	const router = useRouter();
 
-	const [url, name] = router.asPath.split("?");
+	const name = router.asPath.replace("/quiz?", "");
 	const player = decodeURI(name);
 
 	function addResult(result) {
@@ -274,9 +229,9 @@ function Quiz() {
 	}
 
 	return (
-		<QuizBackground backgroundImage={db.bg}>
+		<QuizBackground backgroundImage={externalBg}>
 			<Head>
-				<title>{db.title}</title>
+				<title>{externalTitle}</title>
 			</Head>
 			<QuizContainer>
 				<Logo />

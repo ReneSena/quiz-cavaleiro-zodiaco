@@ -1,27 +1,30 @@
 import React from "react";
+import Link from "../Link";
 
 import { List } from "./styled";
 
-export function ListQuiz() {
+export function ListQuiz(props) {
+	const { data } = props;
+
 	return (
 		<List>
-			<li>
-				<a href="https://demon-slayer-quiz.hugos94.vercel.app/">
-					hugos94/demon-slayer-quiz
-				</a>
-			</li>
-			<li>
-				<a href="#">joaokleberprogramador/aluraqiz</a>
-			</li>
-			<li>
-				<a href="#">joaokleberprogramador/aluraqiz</a>
-			</li>
-			<li>
-				<a href="#">joaokleberprogramador/aluraqiz</a>
-			</li>
-			<li>
-				<a href="#">joaokleberprogramador/aluraqiz</a>
-			</li>
+			{data.map((link) => {
+				const result = link.replace(
+					/\https:\/\/|\.vercel.app\/|\github.com\//g,
+					""
+				);
+
+				const [project, user] = result.split(/\.|\//g);
+
+				return (
+					<li key={link}>
+						<a
+							as={Link}
+							href={`/quiz/${project}___${user}`}
+						>{`${project} / ${user}`}</a>
+					</li>
+				);
+			})}
 		</List>
 	);
 }

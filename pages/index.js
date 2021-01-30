@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import db from "../db.json";
+import { motion } from "framer-motion";
 import Widget from "../src/components/Widget";
 import QuizBackground from "../src/components/QuizBackground";
 import QuizContainer from "../src/components/QuizContainer";
@@ -34,7 +34,16 @@ export default function Home() {
 			</Head>
 			<QuizContainer>
 				<Logo />
-				<Widget>
+				<Widget
+					as={motion.section}
+					transition={{ delay: 0, duration: 0.5 }}
+					variants={{
+						show: { opacity: 1, y: "0" },
+						hidden: { opacity: 0, y: "100%" },
+					}}
+					initial="hidden"
+					animate="show"
+				>
 					<Widget.Header>
 						<h1>{db.title}</h1>
 					</Widget.Header>
@@ -51,7 +60,16 @@ export default function Home() {
 					</Widget.Content>
 				</Widget>
 
-				<Widget>
+				<Widget
+					as={motion.section}
+					transition={{ delay: 0.5, duration: 0.5 }}
+					variants={{
+						show: { opacity: 1 },
+						hidden: { opacity: 0 },
+					}}
+					initial="hidden"
+					animate="show"
+				>
 					<Widget.Content>
 						<h1>Quizes da galera</h1>
 
@@ -59,10 +77,20 @@ export default function Home() {
 							Dá uma olhada nesses quizes incríveis que o pessoal
 							da Imersão fez:
 						</p>
-						<ListQuiz />
+
+						<ListQuiz data={db.external} />
 					</Widget.Content>
 				</Widget>
-				<Footer />
+				<Footer
+					as={motion.footer}
+					transition={{ delay: 0.5, duration: 0.5 }}
+					variants={{
+						show: { opacity: 1 },
+						hidden: { opacity: 0 },
+					}}
+					initial="hidden"
+					animate="show"
+				/>
 			</QuizContainer>
 			<GitHubCorner projectUrl="https://github.com/ReneSena/quiz-cavaleiro-zodiaco" />
 		</QuizBackground>
