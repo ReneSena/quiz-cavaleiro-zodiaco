@@ -81,15 +81,5 @@
 		"success": "#4CAF50"
 	  },
 	  "borderRadius": "5px"
-	},
-	"quizes": [
-		{
-			"name": "",
-			"url": ""
-		},
-		{
-			"name": "",
-			"url": ""
-		}
-	]
+	}
 }

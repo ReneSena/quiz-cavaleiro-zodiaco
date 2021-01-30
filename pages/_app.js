@@ -33,26 +33,30 @@ export default function App({ Component, pageProps }) {
 	return (
 		<>
 			<Head>
+				<title>CDZQUIZ - Os Cavaleiros do Zodíaco</title>
 				<meta property="og:locale" content="pt_BR" />
+				<meta
+					name="title"
+					content="CDZQUIZ - Os Cavaleiros do Zodíaco"
+				/>
 				<meta property="og:image" content={db.bg} />
 				<meta
 					property="og:url"
 					content="https://quiz-cavaleiro-zodiaco.vercel.app/"
 				/>
-				<meta
-					name="title"
-					content="CDZQUIZ - Quiz relacionado ao anime Cavalerios do Zodíaco"
-				/>
+
 				<meta property="og:type" content="website" />
-				<meta
-					property="twitter:url"
-					content="https://quiz-cavaleiro-zodiaco.vercel.app/"
-				/>
+
+				<meta name="description" content={db.bg} />
+
+				<meta property="twitter:card" content="summary_large_image" />
+				<meta property="twitter:url" content="https://metatags.io/" />
 				<meta
 					property="twitter:title"
-					content="CDZQUIZ - Quiz relacionado ao anime Cavalerios do Zodíaco"
+					content="CDZQUIZ - Os Cavaleiros do Zodíaco"
 				/>
-				<meta property="twitter:image" content={db.bg}></meta>
+				<meta property="twitter:description" content={db.bg} />
+				<meta property="twitter:image" content={db.bg} />
 
 				<link
 					href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
