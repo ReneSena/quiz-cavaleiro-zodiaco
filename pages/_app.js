@@ -39,10 +39,7 @@ export default function App({ Component, pageProps }) {
 					name="title"
 					content="CDZQUIZ - Os Cavaleiros do Zodíaco"
 				/>
-				<meta
-					property="og:image"
-					content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
-				/>
+				<meta property="og:image" content={db.bg} />
 				<meta
 					property="og:url"
 					content="https://quiz-cavaleiro-zodiaco.vercel.app/"
@@ -53,16 +50,16 @@ export default function App({ Component, pageProps }) {
 				<meta name="description" content={db.description} />
 
 				<meta property="twitter:card" content="summary_large_image" />
-				<meta property="twitter:url" content="https://metatags.io/" />
+				<meta
+					property="twitter:url"
+					content="https://quiz-cavaleiro-zodiaco.vercel.app/"
+				/>
 				<meta
 					property="twitter:title"
 					content="CDZQUIZ - Os Cavaleiros do Zodíaco"
 				/>
 				<meta property="twitter:description" content={db.description} />
-				<meta
-					property="twitter:image"
-					content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
-				/>
+				<meta property="twitter:image" content={db.bg} />
 
 				<link
 					href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
