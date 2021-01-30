@@ -1,35 +1,20 @@
-import React from "react";
-import styled from "styled-components";
-
-const DefaultButton = styled.button`
-	width: 100%;
-	height: 36px;
-	border: 0;
-	border-radius: 5px;
-	line-height: 16px;
-	font-size: 14px;
-	font-weight: 700;
-	letter-spacing: 1.25px;
-	text-transform: uppercase;
-	outline: none;
-	color: #fff;
-	background-color: #ff5722;
-	cursor: pointer;
-	transition: all 0.3s;
-
-	&:disabled {
-		background-color: #979797;
-		cursor: not-allowed;
-	}
-
-	&:hover:not(:disabled) {
-		opacity: 0.8;
-		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
-	}
-`;
+import React from 'react';
+import { Container } from './styled';
+import { motion } from 'framer-motion';
 
 export function Button(props) {
 	const { children } = props;
 
-	return <DefaultButton {...props}>{children}</DefaultButton>;
+	return (
+		<Container
+			as={motion.button}
+			transition={{ delay: 0.3, duration: 0.2 }}
+			variants={{
+				show: { opacity: 1, x: '0' },
+				hidden: { opacity: 0, x: '100%' },
+			}}
+			{...props}>
+			{children}
+		</Container>
+	);
 }
