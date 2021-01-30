@@ -1,6 +1,7 @@
-import Head from "next/head";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import db from "../db.json";
+import React from 'react';
+import Head from 'next/head';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import db from '../db.json';
 
 const GlobalStyle = createGlobalStyle`
 	* {
@@ -27,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 `;
 
-const theme = db.theme;
+const { theme } = db;
 
 export default function App({ Component, pageProps }) {
 	return (
@@ -35,11 +36,11 @@ export default function App({ Component, pageProps }) {
 			<Head>
 				<title>CDZQUIZ - Os Cavaleiros do Zodíaco</title>
 				<meta property="og:locale" content="pt_BR" />
+				<meta property="og:image:url" content={db.bg} />
 				<meta
 					name="title"
 					content="CDZQUIZ - Os Cavaleiros do Zodíaco"
 				/>
-				<meta property="og:image" content={db.bg} />
 				<meta
 					property="og:url"
 					content="https://quiz-cavaleiro-zodiaco.vercel.app/"
@@ -60,6 +61,13 @@ export default function App({ Component, pageProps }) {
 				/>
 				<meta property="twitter:description" content={db.description} />
 				<meta property="twitter:image" content={db.bg} />
+
+				<link
+					rel="icon"
+					type="image/png"
+					sizes="170x170"
+					href="/favicon.png"
+				/>
 
 				<link
 					href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"

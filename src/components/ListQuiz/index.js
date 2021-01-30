@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "../Link";
+import React from 'react';
+import LinkExterno from '../Link';
 
-import { List } from "./styled";
+import { List } from './styled';
 
 export function ListQuiz(props) {
 	const { data } = props;
@@ -11,7 +11,7 @@ export function ListQuiz(props) {
 			{data.map((link) => {
 				const result = link.replace(
 					/\https:\/\/|\.vercel.app\/|\github.com\//g,
-					""
+					''
 				);
 
 				const [project, user] = result.split(/\.|\//g);
@@ -19,9 +19,8 @@ export function ListQuiz(props) {
 				return (
 					<li key={link}>
 						<a
-							as={Link}
-							href={`/quiz/${project}___${user}`}
-						>{`${project} / ${user}`}</a>
+							as={LinkExterno}
+							href={`/quiz/${project}___${user}`}>{`${project} / ${user}`}</a>
 					</li>
 				);
 			})}

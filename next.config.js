@@ -5,8 +5,10 @@ module.exports = {
 			use: [
 				options.defaultLoaders.babel,
 				{
-					loader: "file-loader",
-					loader: "url-loader",
+					loader: 'file-loader',
+				},
+				{
+					loader: 'url-loader',
 				},
 			],
 		});

@@ -1,41 +1,23 @@
-import { useRouter } from "next/router";
-import db from "../../db.json";
-import Widget from "../../src/components/Widget";
-import QuizBackground from "../../src/components/QuizBackground";
-import QuizContainer from "../../src/components/QuizContainer";
-import GitHubCorner from "../../src/components/GitHubCorner";
-import Logo from "../../src/components/QuizLogo";
-import Head from "next/head";
-import { Button } from "../../src/components/Button";
-import AlternativesForm from "../../src/components/AlternativesForm";
+import React from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { ErrorAlt } from '@styled-icons/boxicons-solid/ErrorAlt';
+import { Verified } from '@styled-icons/material-sharp/Verified';
 
-import Hyoga from "../../src/assets/audio/trovao.mp3";
-import Ikki from "../../src/assets/audio/ikki.mp3";
-import Pegasus from "../../src/assets/audio/pegasus.mp3";
-import Shiryu from "../../src/assets/audio/shiryu.mp3";
-import Shun from "../../src/assets/audio/shun.mp3";
-import Ohno from "../../src/assets/audio/ohno.mp3";
-import TrilhaSonora from "../../src/assets/audio/song.mp3";
+import db from '../../db.json';
+import Widget from '../../src/components/Widget';
+import QuizBackground from '../../src/components/QuizBackground';
+import QuizContainer from '../../src/components/QuizContainer';
+import GitHubCorner from '../../src/components/GitHubCorner';
+import Logo from '../../src/components/QuizLogo';
+import { Button } from '../../src/components/Button';
+import AlternativesForm from '../../src/components/AlternativesForm';
 
-import { ErrorAlt } from "@styled-icons/boxicons-solid/ErrorAlt";
-import { Verified } from "@styled-icons/material-sharp/Verified";
-
-function LoadingWidget() {
-	return (
-		<>
-			<Widget>
-				<Widget.Header>Prepare-se!!!</Widget.Header>
-			</Widget>
-
-			<Widget>
-				<img
-					style={{ width: "100%", height: "100%" }}
-					src="https://geekquantico.com.br/wp-content/uploads/2019/11/P%C3%A9gaso-Gif.gif"
-				/>
-			</Widget>
-		</>
-	);
-}
+import Pegasus from '../../src/assets/audio/pegasus.mp3';
+import Ohno from '../../src/assets/audio/ohno.mp3';
+import TrilhaSonora from '../../src/assets/audio/song.mp3';
+import Loader from '../../src/components/Loader';
 
 function ResultWidget(props) {
 	const { results, player } = props;
@@ -56,13 +38,13 @@ function ResultWidget(props) {
 			<Widget>
 				<Widget.Content>
 					<p>
-						Você acertou {results.filter((result) => result).length}{" "}
+						Você acertou {results.filter((result) => result).length}{' '}
 						perguntas
 					</p>
 					<ul>
 						{results.map((result, index) => (
 							<li key={`result__${result}`}>
-								{`0${index + 1}º`} Resultado:{" "}
+								{`0${index + 1}º`} Resultado:{' '}
 								{result === true ? (
 									<Verified size="20" color="green" />
 								) : (
@@ -71,7 +53,7 @@ function ResultWidget(props) {
 							</li>
 						))}
 					</ul>
-					<Button type="button" onClick={() => router.push("/")}>
+					<Button type="button" onClick={() => router.push('/')}>
 						Voltar para o ínicio
 					</Button>
 				</Widget.Content>
@@ -108,14 +90,12 @@ function Questions(props) {
 				</h3>
 			</Widget.Header>
 
-			<img
-				alt="Descrição"
-				style={{
-					width: "100%",
-					objecFit: "cover",
-				}}
+			<Image
 				src={question.image}
-				height="200"
+				alt={question.alt}
+				width={'100%'}
+				height={'200px'}
+				objectFit="cover"
 			/>
 
 			<Widget.Content>
@@ -139,14 +119,13 @@ function Questions(props) {
 							form.current.reset();
 							onSubmit();
 						}, 5 * 1000);
-					}}
-				>
+					}}>
 					{question.alternatives.map(
 						(alternative, alternativeIndex) => {
 							const alternativeId = `alternative__${alternativeIndex}`;
 							const alternativeStatus = isCorrect
-								? "SUCCESS"
-								: "ERROR";
+								? 'SUCCESS'
+								: 'ERROR';
 
 							const isSelected =
 								selectedAlternative === alternativeIndex;
@@ -161,8 +140,7 @@ function Questions(props) {
 										data-status={
 											isQuestionFormSubmited &&
 											alternativeStatus
-										}
-									>
+										}>
 										<input
 											id={alternativeId}
 											type="radio"
@@ -173,43 +151,6 @@ function Questions(props) {
 												);
 											}}
 										/>
-
-										{/* {alternativeStatus === "SUCCESS" &&
-										questionId && (
-											<audio
-												ref={audioTrack}
-												src={Hyoga}
-											/>
-										)}
-
-									{alternativeStatus === "SUCCESS" &&
-										questionId && (
-											<audio
-												ref={audioTrack}
-												src={Ikki}
-											/>
-										)}
-
-									{alternativeStatus === "SUCCESS" &&
-										questionId && (
-											<audio
-												ref={audioTrack}
-												src={Shun}
-											/>
-										)}
-
-									{alternativeStatus === "SUCCESS" &&
-										questionId && (
-											<audio
-												ref={audioTrack}
-												src={Shiryu}
-											/>
-										)} */}
-
-										{/*
-									{alternativeStatus === "ERROR" && (
-										<audio ref={audioTrack} src={Ohno} />
-									)} */}
 
 										{alternative}
 									</Widget.Topic>
@@ -230,9 +171,9 @@ function Questions(props) {
 }
 
 const screenStates = {
-	QUIZ: "QUIZ",
-	LOADING: "LOADING",
-	RESULT: "RESULT",
+	QUIZ: 'QUIZ',
+	LOADING: 'LOADING',
+	RESULT: 'RESULT',
 };
 
 function Quiz() {
@@ -245,7 +186,7 @@ function Quiz() {
 	const question = db.questions[questionIndex];
 	const router = useRouter();
 
-	const name = router.asPath.replace("/quiz?", "");
+	const name = router.asPath.replace('/quiz?', '');
 	const player = decodeURI(name);
 
 	function addResult(result) {
@@ -286,7 +227,7 @@ function Quiz() {
 					/>
 				)}
 
-				{screenState === screenStates.LOADING && <LoadingWidget />}
+				{screenState === screenStates.LOADING && <Loader />}
 
 				{screenState === screenStates.RESULT && (
 					<ResultWidget results={results} player={player} />
