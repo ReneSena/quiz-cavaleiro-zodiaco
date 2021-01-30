@@ -1,7 +1,18 @@
 import React from 'react';
 import Widget from '../Widget';
+import Lottie from 'react-lottie';
+import animationData from './animation.json';
 
 function Loader() {
+	const defaultOptions = {
+		loop: true,
+		autoplay: true,
+		animationData: animationData,
+		rendererSettings: {
+			preserveAspectRatio: 'xMidYMid slice',
+		},
+	};
+
 	return (
 		<>
 			<Widget>
@@ -9,12 +20,13 @@ function Loader() {
 			</Widget>
 
 			<Widget>
-				<img
-					src="/pegasos.gif"
-					alt="Gif animado do personagem Seya de Pegasus"
-					width={'400px'}
-					height={'200px'}
-				/>
+				<div>
+					<Lottie
+						options={defaultOptions}
+						height={'100%'}
+						width={200}
+					/>
+				</div>
 			</Widget>
 		</>
 	);
