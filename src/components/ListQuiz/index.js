@@ -18,9 +18,8 @@ export function ListQuiz(props) {
 
 				return (
 					<li key={link}>
-						<a
-							as={LinkExterno}
-							href={`/quiz/${project}___${user}`}>{`${project} / ${user}`}</a>
+						<LinkExterno
+							href={`/quiz/${project}___${user}`}>{`${project} / ${user}`}</LinkExterno>
 					</li>
 				);
 			})}
