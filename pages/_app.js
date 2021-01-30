@@ -1,13 +1,16 @@
 import React from 'react';
 import Head from 'next/head';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import db from '../db.json';
+
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+		text-decoration: none;
+		list-style: none;
 	}
 
 	body {

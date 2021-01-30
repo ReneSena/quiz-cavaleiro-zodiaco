@@ -6,8 +6,6 @@ module.exports = {
 				options.defaultLoaders.babel,
 				{
 					loader: 'file-loader',
-				},
-				{
 					loader: 'url-loader',
 				},
 			],

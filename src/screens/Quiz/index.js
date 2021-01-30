@@ -1,20 +1,21 @@
-import { useRouter } from "next/router";
-import Widget from "../../../src/components/Widget";
-import QuizBackground from "../../../src/components/QuizBackground";
-import QuizContainer from "../../../src/components/QuizContainer";
-import GitHubCorner from "../../../src/components/GitHubCorner";
-import Logo from "../../../src/components/QuizLogo";
-import Head from "next/head";
-import { Button } from "../../../src/components/Button";
-import AlternativesForm from "../../../src/components/AlternativesForm";
+import React from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { ErrorAlt } from '@styled-icons/boxicons-solid/ErrorAlt';
+import { Verified } from '@styled-icons/material-sharp/Verified';
 
-import Pegasus from "../../../src/assets/audio/pegasus.mp3";
-import Ohno from "../../../src/assets/audio/ohno.mp3";
-import TrilhaSonora from "../../../src/assets/audio/song.mp3";
+import Widget from '../../components/Widget';
+import QuizBackground from '../../components/QuizBackground';
+import QuizContainer from '../../components/QuizContainer';
+import GitHubCorner from '../../components/GitHubCorner';
+import Logo from '../../components/QuizLogo';
+import { Button } from '../../components/Button';
+import AlternativesForm from '../../components/AlternativesForm';
+import BackLinkArrow from '../../components/BackLinkArrow';
 
-import { ErrorAlt } from "@styled-icons/boxicons-solid/ErrorAlt";
-import { Verified } from "@styled-icons/material-sharp/Verified";
-import BackLinkArrow from "../../components/BackLinkArrow";
+// import Pegasus from '../../assets/audio/pegasus.mp3';
+// import Ohno from '../../assets/audio/ohno.mp3';
+// import TrilhaSonora from '../../assets/audio/song.mp3';
 
 function LoadingWidget() {
 	return (
@@ -25,7 +26,7 @@ function LoadingWidget() {
 
 			<Widget>
 				<img
-					style={{ width: "100%", height: "100%" }}
+					style={{ width: '100%', height: '100%' }}
 					src="https://geekquantico.com.br/wp-content/uploads/2019/11/P%C3%A9gaso-Gif.gif"
 				/>
 			</Widget>
@@ -35,16 +36,16 @@ function LoadingWidget() {
 
 function ResultWidget(props) {
 	const { results, player } = props;
-	const audioFinish = React.useRef();
+	// const audioFinish = React.useRef();
 	const router = useRouter();
 
-	React.useEffect(() => {
-		audioFinish.current.play();
-	}, []);
+	// React.useEffect(() => {
+	// 	audioFinish.current.play();
+	// }, []);
 
 	return (
 		<>
-			<audio ref={audioFinish} src={TrilhaSonora}></audio>
+			{/* <audio ref={audioFinish} src={TrilhaSonora}></audio> */}
 			<Widget>
 				<Widget.Header>Seus resultados: {player}</Widget.Header>
 			</Widget>
@@ -52,13 +53,13 @@ function ResultWidget(props) {
 			<Widget>
 				<Widget.Content>
 					<p>
-						Você acertou {results.filter((result) => result).length}{" "}
+						Você acertou {results.filter((result) => result).length}{' '}
 						perguntas
 					</p>
 					<ul>
 						{results.map((result, index) => (
 							<li key={`result__${result}`}>
-								{`0${index + 1}º`} Resultado:{" "}
+								{`0${index + 1}º`} Resultado:{' '}
 								{result === true ? (
 									<Verified size="20" color="green" />
 								) : (
@@ -67,7 +68,7 @@ function ResultWidget(props) {
 							</li>
 						))}
 					</ul>
-					<Button type="button" onClick={() => router.push("/")}>
+					<Button type="button" onClick={() => router.push('/')}>
 						Voltar para o ínicio
 					</Button>
 				</Widget.Content>
@@ -93,7 +94,7 @@ function Questions(props) {
 	);
 	const isCorrect = selectedAlternative === question.answer;
 	const hasAlternativeSelected = selectedAlternative !== undefined;
-	const audioTrack = React.useRef();
+	// const audioTrack = React.useRef();
 	const form = React.useRef();
 
 	return (
@@ -109,8 +110,8 @@ function Questions(props) {
 			<img
 				alt="Descrição"
 				style={{
-					width: "100%",
-					objecFit: "cover",
+					width: '100%',
+					objecFit: 'cover',
 				}}
 				src={question.image}
 				height="200"
@@ -126,9 +127,9 @@ function Questions(props) {
 						event.preventDefault();
 						setIsQuestionFormSubmited(true);
 
-						if (audioTrack.current) {
-							audioTrack.current.play();
-						}
+						// if (audioTrack.current) {
+						// 	audioTrack.current.play();
+						// }
 
 						setTimeout(() => {
 							addResult(isCorrect);
@@ -137,14 +138,13 @@ function Questions(props) {
 							form.current.reset();
 							onSubmit();
 						}, 5 * 1000);
-					}}
-				>
+					}}>
 					{question.alternatives.map(
 						(alternative, alternativeIndex) => {
 							const alternativeId = `alternative__${alternativeIndex}`;
 							const alternativeStatus = isCorrect
-								? "SUCCESS"
-								: "ERROR";
+								? 'SUCCESS'
+								: 'ERROR';
 
 							const isSelected =
 								selectedAlternative === alternativeIndex;
@@ -159,8 +159,7 @@ function Questions(props) {
 										data-status={
 											isQuestionFormSubmited &&
 											alternativeStatus
-										}
-									>
+										}>
 										<input
 											id={alternativeId}
 											type="radio"
@@ -178,7 +177,7 @@ function Questions(props) {
 						}
 					)}
 
-					<audio ref={audioTrack} src={isCorrect ? Pegasus : Ohno} />
+					{/* <audio ref={audioTrack} src={isCorrect ? Pegasus : Ohno} /> */}
 
 					<Button type="submit" disabled={!hasAlternativeSelected}>
 						Confirmar
@@ -190,9 +189,9 @@ function Questions(props) {
 }
 
 const screenStates = {
-	QUIZ: "QUIZ",
-	LOADING: "LOADING",
-	RESULT: "RESULT",
+	QUIZ: 'QUIZ',
+	LOADING: 'LOADING',
+	RESULT: 'RESULT',
 };
 
 function Quiz({ externalQuestions, externalBg, externalTitle }) {
@@ -205,7 +204,7 @@ function Quiz({ externalQuestions, externalBg, externalTitle }) {
 	const question = externalQuestions[questionIndex];
 	const router = useRouter();
 
-	const name = router.asPath.replace("/quiz?", "");
+	const name = router.asPath.replace('/quiz?', '');
 	const player = decodeURI(name);
 
 	function addResult(result) {

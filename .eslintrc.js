@@ -29,5 +29,6 @@ module.exports = {
 		'import/no-extraneous-dependencies': 'off',
 
 		'react/jsx-no-duplicate-props': ['error', { ignoreCase: false }],
+		'react/jsx-curly-brace-presence': [{ props: string, children: string }],
 	},
 };

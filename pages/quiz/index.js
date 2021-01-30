@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { ErrorAlt } from '@styled-icons/boxicons-solid/ErrorAlt';
 import { Verified } from '@styled-icons/material-sharp/Verified';
@@ -14,9 +13,10 @@ import Logo from '../../src/components/QuizLogo';
 import { Button } from '../../src/components/Button';
 import AlternativesForm from '../../src/components/AlternativesForm';
 
-import Pegasus from '../../src/assets/audio/pegasus.mp3';
+import Pegasus from './../../src/assets/audio/pegasus.mp3';
 import Ohno from '../../src/assets/audio/ohno.mp3';
 import TrilhaSonora from '../../src/assets/audio/song.mp3';
+
 import Loader from '../../src/components/Loader';
 
 function ResultWidget(props) {
@@ -90,12 +90,11 @@ function Questions(props) {
 				</h3>
 			</Widget.Header>
 
-			<Image
+			<img
 				src={question.image}
 				alt={question.alt}
-				width={'100%'}
+				width={'350px'}
 				height={'200px'}
-				objectFit="cover"
 			/>
 
 			<Widget.Content>
@@ -159,7 +158,12 @@ function Questions(props) {
 						}
 					)}
 
-					<audio ref={audioTrack} src={isCorrect ? Pegasus : Ohno} />
+					<audio
+						ref={audioTrack}
+						src={isCorrect ? Pegasus : Ohno}
+						type="audio/mpeg"
+						preload="auto"
+					/>
 
 					<Button type="submit" disabled={!hasAlternativeSelected}>
 						Confirmar
