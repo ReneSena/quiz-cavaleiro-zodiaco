@@ -8,7 +8,6 @@ import { motion } from 'framer-motion';
 import Timer from '../../components/Timer';
 import Modal from '../../components/Modal';
 
-import Pegasus from '../../assets/audio/pegasus.mp3';
 import Ohno from '../../assets/audio/ohno.mp3';
 
 export default function Questions(props) {
@@ -163,12 +162,14 @@ export default function Questions(props) {
 							}
 						)}
 
-						<audio
-							ref={audioTrack}
-							src={isCorrect ? Pegasus : Ohno}
-							type="audio/mpeg"
-							preload="auto"
-						/>
+						{question.audio && (
+							<audio
+								ref={audioTrack}
+								src={isCorrect ? question.audio : Ohno}
+								type="audio/mpeg"
+								preload="auto"
+							/>
+						)}
 
 						<Button
 							type="submit"
