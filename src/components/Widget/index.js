@@ -56,7 +56,9 @@ Widget.Header = styled.header`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	font-size: 16px;
 	padding: 18px 32px;
+	font-weight: 600;
 	background-image: linear-gradient(
 		180deg,
 		#1769aa,

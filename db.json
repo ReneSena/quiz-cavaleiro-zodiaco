@@ -74,7 +74,8 @@
 	"external": [
 	  "https://aluraquiz-css.omariosouto.vercel.app/",
 	  "https://aluraquiz-marvel.omariosouto.vercel.app/",
-	  "https://demon-slayer-quiz.hugos94.vercel.app/"
+	  "https://demon-slayer-quiz.hugos94.vercel.app/",
+	  "https://github.com/ReneSena/quiz-cavaleiro-zodiaco"
 	],
 	"theme": {
 	  "colors": {
@@ -86,5 +87,6 @@
 		"success": "#4CAF50"
 	  },
 	  "borderRadius": "5px"
-	}
+	},
+	"ranked": []
 }

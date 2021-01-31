@@ -58,7 +58,7 @@ function QuizTemplate(props) {
 				<title>{titleQuiz.title}</title>
 			</Head>
 			<QuizContainer>
-				{/* <Logo /> */}
+				<Logo />
 				{screenState === screenStates.QUIZ && (
 					<Questions
 						question={question}

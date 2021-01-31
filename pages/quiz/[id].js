@@ -47,5 +47,5 @@ export async function getServerSideProps(context) {
 }
 
 QuizDaGalera.propTypes = {
-	dbExterno: PropTypes.objectOf(PropTypes.string).isRequired,
+	dbExterno: PropTypes.objectOf(PropTypes.object).isRequired,
 };

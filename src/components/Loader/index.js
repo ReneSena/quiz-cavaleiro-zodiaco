@@ -16,7 +16,9 @@ function Loader() {
 	return (
 		<>
 			<Widget>
-				<Widget.Header>Prepare-se!!!</Widget.Header>
+				<Widget.Header>
+					Prepare-se, as perguntas vão começar começar!!!
+				</Widget.Header>
 			</Widget>
 
 			<Widget>
