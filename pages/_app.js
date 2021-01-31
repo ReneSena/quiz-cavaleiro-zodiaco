@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
 		flex-direction: column;
 		font-family: 'Lato', sans-serif;
 		color: ${({ theme }) => theme.colors.contrastText};
+		position: relative;
 	}
 
 	html, body {
