@@ -52,7 +52,7 @@ export default function Home() {
 							<Input
 								onChange={handleDataName}
 								value={name}
-								placeholder="Digíte seu nome para batalhar :)"
+								placeholder="Digíte seu nome para começar :)"
 							/>
 							<Button disabled={name.length === 0}>
 								Entrar no jogo
