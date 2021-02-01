@@ -1,12 +1,13 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import db from '../../../db.json';
 
 import { Medal as Score } from '@styled-icons/boxicons-regular/Medal';
 import { Medal } from '@styled-icons/fa-solid/Medal';
 
 import TrilhaSonora from '../../assets/audio/song.mp3';
 import Widget from '../../components/Widget';
+import Loader from '../../components/Loader';
+
 import { Button } from '../../components/Button';
 import { ListScore, ListHeader } from './styled';
 
@@ -17,10 +18,11 @@ export default function ResultWidget(props) {
 
 	let score = results.filter((result) => result).length;
 	let [listPlayer, setListPlayer] = React.useState([]);
+	let [loading, setLoading] = React.useState(false);
 
 	React.useEffect(() => {
 		audioFinish.current.play();
-
+		setLoading(true);
 		async function buildScoreBoard() {
 			await fetch('https://api-fake-quiz.herokuapp.com/scoreboard', {
 				headers: {
@@ -44,6 +46,7 @@ export default function ResultWidget(props) {
 		}
 
 		buildScoreBoard();
+		setLoading(false);
 	}, []);
 
 	React.useEffect(() => {
@@ -70,27 +73,38 @@ export default function ResultWidget(props) {
 						{score <= 2 &&
 							`Ops!! Você fez ${score}0 pontos, tenho certeza que na próxima se sairá melhor! :)`}
 					</p>
-					<ListHeader>
-						<h1 className="title">
-							Ranking <Medal size="30" color="yellow" />
-						</h1>
-						<div className="subtitle">
-							<span>Nome</span> <span>Pontos</span>
-						</div>
-					</ListHeader>
-					<ListScore>
-						{listPlayer.map((player) => {
-							return (
-								<li key={player.id}>
-									<span>{player.name}</span>
-									<div>
-										<span>{player.score} </span>
-										<Score size="24" color="yellow" />
-									</div>
-								</li>
-							);
-						})}
-					</ListScore>
+					{loading === true && <Loader header="hidden" />}
+					{loading === false && (
+						<>
+							<ListHeader>
+								<h1 className="title">
+									Ranking <Medal size="30" color="yellow" />
+								</h1>
+								<div className="subtitle">
+									<span>Nome</span> <span>Pontos</span>
+								</div>
+							</ListHeader>
+							<ListScore>
+								{listPlayer.map((player) => {
+									return (
+										<li key={player.id}>
+											<span>{player.name}</span>
+											<div>
+												<span>
+													{`${player.score}0`}{' '}
+												</span>
+												<Score
+													size="24"
+													color="yellow"
+												/>
+											</div>
+										</li>
+									);
+								})}
+							</ListScore>
+						</>
+					)}
+
 					<Button type="button" onClick={() => router.push('/')}>
 						Jogar novamente
 					</Button>
