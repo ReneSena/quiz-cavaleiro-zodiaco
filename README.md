@@ -3,13 +3,13 @@
 	<h1>Quiz</h1>
 </div>
 
-
 ![Badge](https://img.shields.io/badge/Quiz-CDZ-%23542F61?style=for-the-badge&logo=appveyor)
 ![Badge](https://img.shields.io/badge/Version-0.1.0-%23542F61?style=for-the-badge&logo=appveyor)
 ![Badge](https://img.shields.io/badge/React-v16.18.0-%233570B2?style=for-the-badge&logo=appveyor)
 ![Badge](https://img.shields.io/badge/Node-v14.15.4-%2300B98E?style=for-the-badge&logo=appveyor)
 ![Badge](https://img.shields.io/badge/Npm-v6.14.10-%2300B98E?style=for-the-badge&logo=appveyor)
 ![Badge](https://img.shields.io/badge/Deploy-Vercel-%23542F61?style=for-the-badge&logo=appveyor)
+![Badge](https://img.shields.io/apm/l/npm?style=for-the-badge)
 
 ## :dart: Objetivo
 
