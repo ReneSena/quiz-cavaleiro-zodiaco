@@ -34,6 +34,9 @@ export const List = styled.ul`
 		color: #fff;
 		background-color: #222;
 		text-decoration: none;
+		white-space: nowrap;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
 
 		&.disabled {
 			pointer-events: none;
