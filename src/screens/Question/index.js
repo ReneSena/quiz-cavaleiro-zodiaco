@@ -9,6 +9,7 @@ import Timer from '../../components/Timer';
 import Modal from '../../components/Modal';
 
 import Ohno from '../../assets/audio/ohno.mp3';
+import Pegasus from '../../assets/audio/pegasus.mp3';
 
 export default function Questions(props) {
 	const {
@@ -162,14 +163,12 @@ export default function Questions(props) {
 							}
 						)}
 
-						{question.audio && (
-							<audio
-								ref={audioTrack}
-								src={isCorrect ? question.audio : Ohno}
-								type="audio/mpeg"
-								preload="auto"
-							/>
-						)}
+						<audio
+							ref={audioTrack}
+							src={isCorrect ? Pegasus : Ohno}
+							type="audio/mpeg"
+							preload="auto"
+						/>
 
 						<Button
 							type="submit"

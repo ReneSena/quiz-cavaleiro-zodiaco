@@ -4,7 +4,6 @@
 	"description": "Teste os seus conhecimentos sobre os guerreiros de bronze e relembre sua infância jogando.",
 	"questions": [
 		{
-		"audio": "/ikki.mp3",
 		"image": "/hyoga.gif",
 		"alt": "Gif animado representando golpe de um personagem de cavaleiros do zodíaco",
 		"title": "Como é o nome desse golpe que o Hyoga está executando?",
@@ -18,7 +17,6 @@
 		]
 	  },
 	  {
-		"audio": "/pegasus.mp3",
 		"image": "/cavaleiros.jpg",
 		"alt": "A imagem exibe personagens de cavaleiros do zodíaco como Seya, Shun, Hyoga, Shiryu e Ikki",
 		"title": "Quem foi o primeiro cavaleiro de bronze a atingir o 7º sentido?",
@@ -33,7 +31,6 @@
 		]
 	  },
 	  {
-		"audio": "/shun.mp3",
 		"image": "/shiryu_shura.gif",
 		"alt": "A imagem exibe personagens Shiryu e Shura em uma batalha",
 		"title": "Como se chama o golpe que Shiryu usa para derrotar Shura de Capricórnio?",
@@ -47,7 +44,6 @@
 		]
 	  },
 	  {
-		"audio": "/shiryu.mp3",
 		"image": "/cdz_omega.jpg",
 		"alt": "Exibindo personagem de Cavaleiros do Zodíaco Ômega",
 		"title": "Éden é filho de quem?",
@@ -61,7 +57,6 @@
 		]
 	  },
 	  {
-		"audio": "/trovao.mp3",
 		"image": "/cdz_lostcanvas.jpg",
 		"alt": "Imagem representando o anime de cavaleiros do zodíaco - The Lost Canvas",
 		"title": "Quantos episódios tem Cavaleiros do Zodíaco - The Lost Canvas?",
