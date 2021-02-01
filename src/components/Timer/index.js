@@ -9,7 +9,7 @@ function Timer(props) {
 	return (
 		<>
 			<Container>
-				<span>{count}</span>
+				<span className={count <= 10 && 'danger'}>{count}</span>
 			</Container>
 		</>
 	);
