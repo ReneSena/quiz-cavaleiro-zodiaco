@@ -4,12 +4,12 @@ import { useRouter } from 'next/router';
 import { Medal as Score } from '@styled-icons/boxicons-regular/Medal';
 import { Medal } from '@styled-icons/fa-solid/Medal';
 
-import TrilhaSonora from '../../assets/audio/song.mp3';
 import Widget from '../../components/Widget';
 import Loader from '../../components/Loader';
-
 import { Button } from '../../components/Button';
+
 import { ListScore, ListHeader } from './styled';
+import TrilhaSonora from '../../assets/audio/song.mp3';
 
 export default function ResultWidget(props) {
 	const { results, player } = props;
@@ -23,6 +23,7 @@ export default function ResultWidget(props) {
 	React.useEffect(() => {
 		audioFinish.current.play();
 		setLoading(true);
+
 		async function buildScoreBoard() {
 			await fetch('https://api-fake-quiz.herokuapp.com/scoreboard', {
 				headers: {
@@ -43,10 +44,11 @@ export default function ResultWidget(props) {
 				})
 				.then((response) => setListPlayer(response))
 				.catch((error) => console.log(error.status));
+
+			setLoading(false);
 		}
 
 		buildScoreBoard();
-		setLoading(false);
 	}, []);
 
 	React.useEffect(() => {
