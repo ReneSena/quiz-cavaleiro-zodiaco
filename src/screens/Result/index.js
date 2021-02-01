@@ -32,16 +32,26 @@ export default function ResultWidget(props) {
 				.then((response) => {
 					return response.json();
 				})
-				.then((response) => console.log(response));
+				.then((response) => console.log(response))
+				.catch((error) => console.log(error.status));
 
 			await fetch('https://api-fake-quiz.herokuapp.com/scoreboard')
 				.then((response) => {
 					return response.json();
 				})
-				.then((response) => setListPlayer(response));
+				.then((response) => setListPlayer(response))
+				.catch((error) => console.log(error.status));
 		}
 
 		buildScoreBoard();
+	}, []);
+
+	React.useEffect(() => {
+		const result = listPlayer.sort((a, b) =>
+			a.score < b.score ? -1 : a.score > b.score ? 1 : 0
+		);
+
+		setListPlayer(result.reverse());
 	}, []);
 
 	return (
@@ -50,7 +60,6 @@ export default function ResultWidget(props) {
 			<Widget>
 				<Widget.Header>Seus resultados: {player}</Widget.Header>
 			</Widget>
-
 			<Widget>
 				<Widget.Content>
 					<p
@@ -70,16 +79,6 @@ export default function ResultWidget(props) {
 						</div>
 					</ListHeader>
 					<ListScore>
-						{/* {results.map((result, index) => (
-							<li key={`result__${result}`}>
-								<span>{`0${index + 1}º`} Pergunta</span>
-								{result === true ? (
-									<Verified size="24" color="green" />
-								) : (
-									<ErrorAlt size="24" color="red" />
-								)}
-							</li>
-						))} */}
 						{listPlayer.map((player) => {
 							return (
 								<li key={player.id}>
