@@ -2,13 +2,13 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import db from '../../../db.json';
 
-import { ErrorAlt } from '@styled-icons/boxicons-solid/ErrorAlt';
-import { Verified } from '@styled-icons/material-sharp/Verified';
+import { Medal as Score } from '@styled-icons/boxicons-regular/Medal';
+import { Medal } from '@styled-icons/fa-solid/Medal';
 
 import TrilhaSonora from '../../assets/audio/song.mp3';
 import Widget from '../../components/Widget';
 import { Button } from '../../components/Button';
-import { ListScore } from './styled';
+import { ListScore, ListHeader } from './styled';
 
 export default function ResultWidget(props) {
 	const { results, player } = props;
@@ -16,9 +16,32 @@ export default function ResultWidget(props) {
 	const router = useRouter();
 
 	let score = results.filter((result) => result).length;
+	let [listPlayer, setListPlayer] = React.useState([]);
 
 	React.useEffect(() => {
 		audioFinish.current.play();
+
+		async function buildScoreBoard() {
+			await fetch('https://api-fake-quiz.herokuapp.com/scoreboard', {
+				headers: {
+					'Content-type': 'application/json; charset=UTF-8',
+				},
+				method: 'POST',
+				body: JSON.stringify({ name: `${player}`, score: `${score}` }),
+			})
+				.then((response) => {
+					return response.json();
+				})
+				.then((response) => console.log(response));
+
+			await fetch('https://api-fake-quiz.herokuapp.com/scoreboard')
+				.then((response) => {
+					return response.json();
+				})
+				.then((response) => setListPlayer(response));
+		}
+
+		buildScoreBoard();
 	}, []);
 
 	return (
@@ -38,8 +61,16 @@ export default function ResultWidget(props) {
 						{score <= 2 &&
 							`Ops!! Você fez ${score}0 pontos, tenho certeza que na próxima se sairá melhor! :)`}
 					</p>
+					<ListHeader>
+						<h1 className="title">
+							Ranking <Medal size="30" color="yellow" />
+						</h1>
+						<div className="subtitle">
+							<span>Nome</span> <span>Pontos</span>
+						</div>
+					</ListHeader>
 					<ListScore>
-						{results.map((result, index) => (
+						{/* {results.map((result, index) => (
 							<li key={`result__${result}`}>
 								<span>{`0${index + 1}º`} Pergunta</span>
 								{result === true ? (
@@ -48,7 +79,18 @@ export default function ResultWidget(props) {
 									<ErrorAlt size="24" color="red" />
 								)}
 							</li>
-						))}
+						))} */}
+						{listPlayer.map((player) => {
+							return (
+								<li key={player.id}>
+									<span>{player.name}</span>
+									<div>
+										<span>{player.score} </span>
+										<Score size="24" color="yellow" />
+									</div>
+								</li>
+							);
+						})}
 					</ListScore>
 					<Button type="button" onClick={() => router.push('/')}>
 						Jogar novamente
