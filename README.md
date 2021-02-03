@@ -21,7 +21,7 @@ Sendo assim a ideia é construir um app de perguntas e respostas, o famigerado Q
 
 -   [Nextjs](https://nextjs.org/)
 -   [Styled Components](https://styled-components.com)
--       [Styled Icons](https://styled-icons.js.org/)
+-   [Styled Icons](https://styled-icons.js.org/)
 -   [Vercel](https://vercel.com)
 -   [Yarn](https://yarnpkg.com/)
 
