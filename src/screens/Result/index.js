@@ -42,21 +42,19 @@ export default function ResultWidget(props) {
 				.then((response) => {
 					return response.json();
 				})
-				.then((response) => setListPlayer(response))
+				.then((listPlayers) => {
+					const players = listPlayers.sort((a, b) =>
+						a.score < b.score ? -1 : a.score > b.score ? 1 : 0
+					);
+
+					setListPlayer(players.reverse());
+				})
 				.catch((error) => console.log(error.status));
 
-			setLoading(false);
+			await setLoading(false);
 		}
 
 		buildScoreBoard();
-	}, []);
-
-	React.useEffect(() => {
-		const result = listPlayer.sort((a, b) =>
-			a.score < b.score ? -1 : a.score > b.score ? 1 : 0
-		);
-
-		setListPlayer(result.reverse());
 	}, []);
 
 	return (
