@@ -4,7 +4,8 @@
 	"description": "Teste os seus conhecimentos sobre os guerreiros de bronze e relembre sua infância jogando.",
 	"questions": [
 		{
-		"image": "/hyoga.gif",
+		"image": "https://i.pinimg.com/originals/9b/c4/bf/9bc4bfb5b23fb31e45c295bc7514b685.gif",
+		"alternative": "/hyoga.gif",
 		"alt": "Gif animado representando golpe de um personagem de cavaleiros do zodíaco",
 		"title": "Como é o nome desse golpe que o Hyoga está executando?",
 		"description": "Não vale olhar em hihi",
@@ -17,7 +18,8 @@
 		]
 	  },
 	  {
-		"image": "/cavaleiros.jpg",
+		"image": "https://img.betaseries.com/h5g4P5HIvo5zIxHsrJMNxTSUQw8=/750x444/smart/https%3A%2F%2Fwww.betaseries.com%2Fblog%2Fwp-content%2Fuploads%2F2020%2F04%2F5e9e20c82112a.jpg",
+		"alternative": "/cavaleiros.jpg",
 		"alt": "A imagem exibe personagens de cavaleiros do zodíaco como Seya, Shun, Hyoga, Shiryu e Ikki",
 		"title": "Quem foi o primeiro cavaleiro de bronze a atingir o 7º sentido?",
 		"description": "Faz tempo em haha",
@@ -31,7 +33,8 @@
 		]
 	  },
 	  {
-		"image": "/shiryu_shura.gif",
+		"image": "http://4.bp.blogspot.com/-vskq2ZQRcns/UJgcuwYTeyI/AAAAAAAAAEg/PXrj829nPxQ/w1200-h630-p-k-no-nu/shiryu_shura.gif",
+		"alternative": "/shiryu_shura.gif",
 		"alt": "A imagem exibe personagens Shiryu e Shura em uma batalha",
 		"title": "Como se chama o golpe que Shiryu usa para derrotar Shura de Capricórnio?",
 		"description": "Saga das 12 casas :)",
@@ -44,7 +47,8 @@
 		]
 	  },
 	  {
-		"image": "/cdz_omega.jpg",
+		"image": "https://photos1.iorbix.com/00/00/00/00/02/37/66/18/Eden-De-Orion-mMlOfmGsu-b.jpg",
+		"alternative": "/cdz_omega.jpg",
 		"alt": "Exibindo personagem de Cavaleiros do Zodíaco Ômega",
 		"title": "Éden é filho de quem?",
 		"description": "Aloooô nova geração!!!",
@@ -57,7 +61,8 @@
 		]
 	  },
 	  {
-		"image": "/cdz_lostcanvas.jpg",
+		"image": "https://www.einerd.com.br/wp-content/uploads/2019/10/Cavaleiros-do-Zod%C3%ADaco-The-Lost-Canvas-capa-890x501.jpg",
+		"alternative": "/cdz_lostcanvas.jpg",
 		"alt": "Imagem representando o anime de cavaleiros do zodíaco - The Lost Canvas",
 		"title": "Quantos episódios tem Cavaleiros do Zodíaco - The Lost Canvas?",
 		"description": "Essa tá fácil vai!",

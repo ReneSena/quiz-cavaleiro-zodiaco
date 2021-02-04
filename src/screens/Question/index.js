@@ -69,7 +69,7 @@ export default function Questions(props) {
 				</Widget.Header>
 
 				<Widget.Image
-					src={question.image}
+					src={question.alternative}
 					alt={question.alt}
 					as={motion.img}
 					transition={{
