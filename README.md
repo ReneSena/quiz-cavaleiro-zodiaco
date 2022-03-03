@@ -38,19 +38,23 @@ Sendo assim a ideia é construir um app de perguntas e respostas, o famigerado Q
 
 ## :rocket: Executando o projeto
 
+➡️ **Download do projeto**
 ```bash
-git clone https://github.com/ReneSena/quiz-cavaleiro-zodiaco.git ou git@github.com:ReneSena/quiz-cavaleiro-zodiaco.git
-
-// Concluindo a instalação rode
-
-yarn dev
+git clone https://github.com/ReneSena/quiz-cavaleiro-zodiaco.git
+```
+➡️ **Acessando a pasta do projeto depois do clone do projeto**
+```bash
+cd quiz-cavaleiro-zodiaco
 ```
 
-## :muscle: Status do Projeto
-
-<h4 align="left">
-	🚧   Em construção   🚧
-</h4>
+➡️ **Instalando Dependências**
+```bash
+yarn install
+```
+➡️ **Iniciando o projeto**
+```bash
+yarn start
+```
 
 ## :heavy_check_mark: Features Desenvolvidas
 
@@ -58,7 +62,6 @@ yarn dev
 -   [x] Timer para cada pergunta
 -   [x] Modal de Game Over
 -   [x] Ranking de pontuação
--   [ ] Cadastrar links de outros quizes da imersão
 
 ## :eyeglasses: Demo em produção
 
